@@ -1,0 +1,45 @@
+# built application files
+*.apk
+*.ap_
+*.jar
+ 
+# lint folder
+lint
+ 
+# files for the dex VM
+*.dex
+ 
+# Java class files
+*.class
+ 
+# generated files
+bin/
+gen/
+classes/
+gen-external-apklibs/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IntelliJ files
+.idea
+*.iml
+ 
+# OSX files
+.DS_Store
+ 
+# Windows files
+Thumbs.db
+ 
+# vi swap files
+*.swp
+ 
+# backup files
+*.bak
+ 
+# gradle directory
+.gradle
+gradlew
+gradlew.bat
+gradle/
+build/
