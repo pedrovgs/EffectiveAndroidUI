@@ -40,6 +40,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:19.1.0'
     compile 'com.android.support:support-v4:19.1.0'
+    compile 'javax.inject:javax.inject:1@jar'
+    compile 'com.squareup.dagger:dagger-compiler:1.2.+'
+    compile 'com.squareup.dagger:dagger:1.2.+'
 }
 
 checkstyle {
