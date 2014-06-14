@@ -29,8 +29,7 @@ public class TvShowsApplication extends Application {
    *
    * @param object to inject.
    */
-  public void inject(Object object)
-  {
+  public void inject(Object object) {
     objectGraph.inject(object);
   }
 
