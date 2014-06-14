@@ -10,10 +10,14 @@ import javax.inject.Singleton;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-@Module
+@Module(library = true)
 public class ExecutorModule {
 
   @Provides @Singleton Executor provideExecutor(ThreadExecutor threadExecutor) {
     return threadExecutor;
+  }
+
+  @Provides @Singleton MainThread provideMainThread(MainThreadImpl mainThread) {
+    return mainThread;
   }
 }
