@@ -1,5 +1,6 @@
 package com.github.pedrovgs.effectiveandroidui.di;
 
+import com.github.pedrovgs.effectiveandroidui.executor.ExecutorModule;
 import dagger.Module;
 
 /**
@@ -10,7 +11,7 @@ import dagger.Module;
 
 @Module(
     includes = {
-        FrameworkModule.class, ExecutionModule.class
+        FrameworkModule.class, ExecutorModule.class
     })
 public class RootModule {
 
