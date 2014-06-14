@@ -1,50 +1,50 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.9.+'
-    }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:0.9.+'
+  }
 }
 apply plugin: 'android'
 apply from: "$rootDir/checkstyle.gradle"
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+  compileSdkVersion 19
+  buildToolsVersion "19.0.3"
 
-    defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+  defaultConfig {
+    minSdkVersion 8
+    targetSdkVersion 19
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      runProguard false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
     }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-    }
+  }
 
-    lintOptions {
-        abortOnError = true
-    }
-
+  lintOptions {
+    abortOnError = true
+    disable 'InvalidPackage'
+  }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:19.1.0'
-    compile 'com.android.support:support-v4:19.1.0'
-    compile 'javax.inject:javax.inject:1@jar'
-    compile 'com.squareup.dagger:dagger-compiler:1.2.+'
-    compile 'com.squareup.dagger:dagger:1.2.+'
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:appcompat-v7:19.1.0'
+  compile 'com.android.support:support-v4:19.1.0'
+  compile 'javax.inject:javax.inject:1@jar'
+  compile 'com.squareup.dagger:dagger-compiler:1.2.+'
+  compile 'com.squareup.dagger:dagger:1.2.+'
 }
 
 checkstyle {
-    showViolations true
+  showViolations true
 }
