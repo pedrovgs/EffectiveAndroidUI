@@ -18,14 +18,14 @@ import javax.inject.Singleton;
  * @author Pedro Vicente Gómez Sánchez
  */
 @Singleton
-public class TvShowsPresenter {
+public class TvShowCatalogPresenter {
 
   private GetTvShows getTvShowsInteractor;
 
   private View view;
 
   @Inject
-  public TvShowsPresenter(GetTvShows getTvShowsInteractor) {
+  public TvShowCatalogPresenter(GetTvShows getTvShowsInteractor) {
     this.getTvShowsInteractor = getTvShowsInteractor;
   }
 

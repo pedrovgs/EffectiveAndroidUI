@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import butterknife.InjectView;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
-import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowsPresenter;
+import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowCatalogPresenter;
 import com.github.pedrovgs.effectiveandroidui.util.ToastUtils;
 import java.util.Collection;
 import javax.inject.Inject;
@@ -21,9 +21,9 @@ import javax.inject.Inject;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-public class TvShowsFragment extends BaseFragment implements TvShowsPresenter.View {
+public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalogPresenter.View {
 
-  @Inject TvShowsPresenter presenter;
+  @Inject TvShowCatalogPresenter presenter;
 
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.gv_tv_shows) GridView gv_tv_shows;

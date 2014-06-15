@@ -4,7 +4,7 @@ import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 import com.github.pedrovgs.effectiveandroidui.domain.TvShowsModule;
 import com.github.pedrovgs.effectiveandroidui.executor.ExecutorModule;
 import com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity;
-import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowsFragment;
+import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment;
 import dagger.Module;
 
 /**
@@ -17,7 +17,7 @@ import dagger.Module;
     includes = {
         FrameworkModule.class, ExecutorModule.class, TvShowsModule.class
     }, injects = {
-    TvShowsApplication.class, MainActivity.class, TvShowsFragment.class
+    TvShowsApplication.class, MainActivity.class, TvShowCatalogFragment.class
 }
 )
 public class RootModule {

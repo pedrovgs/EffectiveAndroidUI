@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity">
 
-  <!-- TvShowsFragment -->
+  <!-- TvShowCatalogFragment -->
 
   <fragment
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowsFragment"
+      class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment"
       tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"/>
 
 </FrameLayout>
