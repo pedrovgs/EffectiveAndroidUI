@@ -3,6 +3,7 @@ package com.github.pedrovgs.effectiveandroidui;
 import android.app.Application;
 import com.github.pedrovgs.effectiveandroidui.di.RootModule;
 import dagger.ObjectGraph;
+import java.util.List;
 
 /**
  * Android Application extension created to get the control of the application lifecycle.
@@ -37,10 +38,16 @@ public class TvShowsApplication extends Application {
    * Extend the dependency container graph will new dependencies provided by the modules passed as
    * arguments.
    *
-   * @param objects modules used to populate the dependency container.
+   * @param modules used to populate the dependency container.
    */
-  public void plus(Object... objects) {
-    objectGraph.plus(objects);
+  public void plus(List<Object> modules) {
+    if (modules == null) {
+      throw new IllegalArgumentException(
+          "You can't plus a null module, review your getModules() implementation");
+    }
+    for (Object module : modules) {
+      objectGraph.plus(modules);
+    }
   }
 
   private void initializeDependencyInjector() {
