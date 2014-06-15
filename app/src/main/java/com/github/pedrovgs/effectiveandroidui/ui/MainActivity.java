@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import butterknife.InjectView;
 import com.github.pedrovgs.effectiveandroidui.R;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,11 +33,18 @@ public class MainActivity extends BaseActivity {
    */
   public static class PlaceholderFragment extends BaseFragment {
 
+    @InjectView(R.id.tv_hello_world) TextView tv_hello_world;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
       View rootView = inflater.inflate(R.layout.fragment_main, container, false);
       return rootView;
+    }
+
+    @Override public void onViewCreated(View view, Bundle savedInstanceState) {
+      super.onViewCreated(view, savedInstanceState);
+      tv_hello_world.setText("Good bye!");
     }
   }
 }

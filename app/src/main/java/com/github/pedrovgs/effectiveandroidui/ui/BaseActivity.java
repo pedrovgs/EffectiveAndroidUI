@@ -2,6 +2,7 @@ package com.github.pedrovgs.effectiveandroidui.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import butterknife.ButterKnife;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 import java.util.List;
 
@@ -17,7 +18,15 @@ public abstract class BaseActivity extends ActionBarActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     injectDependencies();
+    injectViews();
   }
+
+  /**
+   * Get a list of Dagger modules with Activity scope needed to this Activity.
+   *
+   * @return modules with new dependencies to provide.
+   */
+  protected abstract List<Object> getModules();
 
   /**
    * Modify Dagger ObjectGraph to add new dependencies using a plus operation and inject the
@@ -31,9 +40,10 @@ public abstract class BaseActivity extends ActionBarActivity {
   }
 
   /**
-   * Get a list of Dagger modules with Activity scope needed to this Activity.
-   *
-   * @return modules with new dependencies to provide.
+   * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
+   * value.
    */
-  protected abstract List<Object> getModules();
+  private void injectViews() {
+    ButterKnife.inject(this);
+  }
 }

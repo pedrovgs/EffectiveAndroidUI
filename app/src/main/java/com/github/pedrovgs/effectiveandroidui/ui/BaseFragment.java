@@ -1,7 +1,10 @@
 package com.github.pedrovgs.effectiveandroidui.ui;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.View;
+import butterknife.ButterKnife;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 
 /**
@@ -15,6 +18,27 @@ public class BaseFragment extends Fragment {
 
   @Override public void onAttach(Activity activity) {
     super.onAttach(activity);
-    ((TvShowsApplication) activity.getApplication()).inject(this);
+    injectDependencies();
+  }
+
+  @Override public void onViewCreated(View view, Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    injectViews();
+  }
+
+  /**
+   * Replace every field annotated with @Inject annotation with the provided dependency specified
+   * inside a Dagger module value.
+   */
+  private void injectDependencies() {
+    ((TvShowsApplication) getActivity().getApplication()).inject(this);
+  }
+
+  /**
+   * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
+   * value.
+   */
+  private void injectViews() {
+    ButterKnife.inject(this, getActivity());
   }
 }

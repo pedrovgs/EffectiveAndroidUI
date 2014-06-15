@@ -23,16 +23,14 @@ android {
     versionCode 1
     versionName "1.0"
   }
-  buildTypes {
-    release {
-      runProguard false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-    }
-  }
 
   lintOptions {
     abortOnError = true
     disable 'InvalidPackage'
+  }
+  
+  packagingOptions {
+    exclude 'META-INF/services/javax.annotation.processing.Processor'
   }
 }
 
@@ -43,6 +41,7 @@ dependencies {
   compile 'javax.inject:javax.inject:1@jar'
   compile 'com.squareup.dagger:dagger-compiler:1.2.+'
   compile 'com.squareup.dagger:dagger:1.2.+'
+  compile 'com.jakewharton:butterknife:5.1.+'
 }
 
 task checkstyle(type: Checkstyle) {
