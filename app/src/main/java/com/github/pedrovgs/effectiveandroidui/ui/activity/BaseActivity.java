@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import butterknife.ButterKnife;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
+import dagger.ObjectGraph;
 import java.util.List;
 
 /**
@@ -15,10 +16,21 @@ import java.util.List;
  */
 public abstract class BaseActivity extends ActionBarActivity {
 
+  private ObjectGraph activityScopeGraph;
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     injectDependencies();
     injectViews();
+  }
+
+  /**
+   * Method used to resolve dependencies provided by Dagger modules.
+   *
+   * @param object to inject.
+   */
+  public void inject(Object object) {
+    activityScopeGraph.inject(object);
   }
 
   /**
@@ -36,8 +48,8 @@ public abstract class BaseActivity extends ActionBarActivity {
   private void injectDependencies() {
     TvShowsApplication tvShowsApplication = (TvShowsApplication) getApplication();
     List<Object> activityScopeModules = getModules();
-    tvShowsApplication.plus(activityScopeModules);
-    tvShowsApplication.inject(this);
+    activityScopeGraph = tvShowsApplication.plus(activityScopeModules);
+    inject(this);
   }
 
   /**

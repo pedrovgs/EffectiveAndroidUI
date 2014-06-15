@@ -1,11 +1,13 @@
 package com.github.pedrovgs.effectiveandroidui.di;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 import com.github.pedrovgs.effectiveandroidui.domain.TvShowsModule;
 import com.github.pedrovgs.effectiveandroidui.executor.ExecutorModule;
 import com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity;
-import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment;
 import dagger.Module;
+import dagger.Provides;
 
 /**
  * Dagger module created to work as junction of every module with an application scope.
@@ -15,11 +17,24 @@ import dagger.Module;
 
 @Module(
     includes = {
-        FrameworkModule.class, ExecutorModule.class, TvShowsModule.class
-    }, injects = {
-    TvShowsApplication.class, MainActivity.class, TvShowCatalogFragment.class
-}
-)
+        ExecutorModule.class, TvShowsModule.class,
+    },
+    injects = {
+        TvShowsApplication.class, MainActivity.class
+    }, library = true)
 public class RootModule {
 
+  private final Context context;
+
+  public RootModule(Context context) {
+    this.context = context;
+  }
+
+  @Provides Context provideApplicationContext() {
+    return context;
+  }
+
+  @Provides LayoutInflater provideLayoutInflater() {
+    return LayoutInflater.from(context);
+  }
 }

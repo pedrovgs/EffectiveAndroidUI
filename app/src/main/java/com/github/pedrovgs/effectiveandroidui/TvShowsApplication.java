@@ -40,18 +40,16 @@ public class TvShowsApplication extends Application {
    *
    * @param modules used to populate the dependency container.
    */
-  public void plus(List<Object> modules) {
+  public ObjectGraph plus(List<Object> modules) {
     if (modules == null) {
       throw new IllegalArgumentException(
           "You can't plus a null module, review your getModules() implementation");
     }
-    for (Object module : modules) {
-      objectGraph.plus(module);
-    }
+    return objectGraph.plus(modules.toArray());
   }
 
   private void initializeDependencyInjector() {
-    objectGraph = ObjectGraph.create(new RootModule());
+    objectGraph = ObjectGraph.create(new RootModule(this));
     objectGraph.inject(this);
     objectGraph.injectStatics();
   }

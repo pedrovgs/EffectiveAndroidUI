@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import butterknife.ButterKnife;
-import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
+import com.github.pedrovgs.effectiveandroidui.ui.activity.BaseActivity;
 
 /**
  * Base fragment created to be extended by every fragment in this application. This class provides
@@ -31,7 +31,7 @@ public class BaseFragment extends Fragment {
    * inside a Dagger module value.
    */
   private void injectDependencies() {
-    ((TvShowsApplication) getActivity().getApplication()).inject(this);
+    ((BaseActivity) getActivity()).inject(this);
   }
 
   /**

@@ -10,7 +10,10 @@ import butterknife.InjectView;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowCatalogPresenter;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.tvshow.TvShowCollection;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.tvshow.TvShowRendererAdapterFactory;
 import com.github.pedrovgs.effectiveandroidui.util.ToastUtils;
+import com.pedrogomez.renderers.RendererAdapter;
 import java.util.Collection;
 import javax.inject.Inject;
 
@@ -24,6 +27,10 @@ import javax.inject.Inject;
 public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalogPresenter.View {
 
   @Inject TvShowCatalogPresenter presenter;
+  @Inject TvShowRendererAdapterFactory tvShowRendererAdapterFactory;
+
+  private RendererAdapter<TvShow> adapter;
+  private TvShowCollection tvShows = new TvShowCollection();
 
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.gv_tv_shows) GridView gv_tv_shows;
@@ -36,6 +43,7 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+    initializeGridView();
     presenter.setView(this);
     presenter.initialize();
   }
@@ -55,11 +63,13 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
   }
 
   @Override public void renderVideos(final Collection<TvShow> tvShows) {
-    //Render videos inside adapter here
+    this.tvShows.clear();
+    this.tvShows.addAll(tvShows);
+    refreshAdapter();
   }
 
   @Override public void updateTitleWithCountOfVideow(final int counter) {
-    String actionBarTitle = getString(R.string.app_name) + " - " + counter;
+    String actionBarTitle = getString(R.string.app_name_with_chapter_counter, counter);
     getActivity().setTitle(actionBarTitle);
   }
 
@@ -74,5 +84,14 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
 
   @Override public void showDefaultTitle() {
     getActivity().setTitle(R.string.app_name);
+  }
+
+  private void initializeGridView() {
+    adapter = tvShowRendererAdapterFactory.getTvShowRendererAdapter(tvShows);
+    gv_tv_shows.setAdapter(adapter);
+  }
+
+  private void refreshAdapter() {
+    adapter.notifyDataSetChanged();
   }
 }

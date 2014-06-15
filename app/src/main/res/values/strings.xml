@@ -2,6 +2,8 @@
 <resources>
 
   <string name="app_name">EffectiveAndroidUI</string>
+  <string name="app_name_with_chapter_counter">EffectiveAndroidUI - %1$d Tv Shows</string>
   <string name="connection_error_message">Ups! Something went wrong :(</string>
+  <string name="seasons_counter">%1$d seasons</string>
 
 </resources>
