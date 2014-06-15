@@ -1,4 +1,4 @@
-package com.github.pedrovgs.effectiveandroidui.ui;
+package com.github.pedrovgs.effectiveandroidui.ui.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShowById;
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
+import com.github.pedrovgs.effectiveandroidui.ui.fragment.BaseFragment;
 import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;

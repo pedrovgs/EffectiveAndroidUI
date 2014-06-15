@@ -1,4 +1,4 @@
-package com.github.pedrovgs.effectiveandroidui.ui;
+package com.github.pedrovgs.effectiveandroidui.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;

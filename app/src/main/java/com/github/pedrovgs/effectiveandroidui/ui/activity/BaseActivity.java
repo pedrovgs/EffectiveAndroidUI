@@ -1,4 +1,4 @@
-package com.github.pedrovgs.effectiveandroidui.ui;
+package com.github.pedrovgs.effectiveandroidui.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
