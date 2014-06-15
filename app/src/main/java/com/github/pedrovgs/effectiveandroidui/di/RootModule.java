@@ -1,6 +1,8 @@
 package com.github.pedrovgs.effectiveandroidui.di;
 
+import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 import com.github.pedrovgs.effectiveandroidui.executor.ExecutorModule;
+import com.github.pedrovgs.effectiveandroidui.ui.MainActivity;
 import dagger.Module;
 
 /**
@@ -12,7 +14,8 @@ import dagger.Module;
 @Module(
     includes = {
         FrameworkModule.class, ExecutorModule.class
-    })
+    }, injects = { TvShowsApplication.class, MainActivity.class }
+)
 public class RootModule {
 
 }

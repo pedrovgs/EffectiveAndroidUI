@@ -1,15 +1,19 @@
-package com.github.pedrovgs.effectiveandroidui;
+package com.github.pedrovgs.effectiveandroidui.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import com.github.pedrovgs.effectiveandroidui.R;
+import com.github.pedrovgs.effectiveandroidui.executor.Executor;
+import java.util.LinkedList;
+import java.util.List;
+import javax.inject.Inject;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends BaseActivity {
+
+  @Inject Executor executor;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -23,22 +27,8 @@ public class MainActivity extends ActionBarActivity {
   }
 
   @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.main, menu);
-    return true;
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
-    if (id == R.id.action_settings) {
-      return true;
-    }
-    return super.onOptionsItemSelected(item);
+  protected List<Object> getModules() {
+    return new LinkedList<Object>();
   }
 
   /**

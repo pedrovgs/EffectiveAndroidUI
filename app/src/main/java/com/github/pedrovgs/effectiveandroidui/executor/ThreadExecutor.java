@@ -39,6 +39,9 @@ class ThreadExecutor implements Executor {
 
   @Override
   public void run(final Interactor interactor) {
+    if (interactor == null) {
+      throw new IllegalArgumentException("Interactor to execute can't be null");
+    }
     threadPoolExecutor.submit(new Runnable() {
       @Override public void run() {
         interactor.run();
