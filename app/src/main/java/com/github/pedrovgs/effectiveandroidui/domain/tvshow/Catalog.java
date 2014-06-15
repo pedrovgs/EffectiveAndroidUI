@@ -1,6 +1,8 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
+import java.util.Collection;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * Contains all the available TvShows.
@@ -359,7 +361,7 @@ public class Catalog {
   /**
    * @return all available TvShow in the catalog.
    */
-  public LinkedHashSet<TvShow> getTvShows() {
-    return (LinkedHashSet<TvShow>) tvShows.clone();
+  public Collection<TvShow> getTvShows() {
+    return (Set<TvShow>) tvShows.clone();
   }
 }

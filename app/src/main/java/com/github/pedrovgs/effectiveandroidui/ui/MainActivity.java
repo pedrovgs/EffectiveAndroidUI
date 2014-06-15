@@ -5,12 +5,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.InjectView;
 import com.github.pedrovgs.effectiveandroidui.R;
+import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
+import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity {
+
+  @Inject GetTvShows getTvShows;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,17 @@ public class MainActivity extends BaseActivity {
           .add(R.id.container, new PlaceholderFragment())
           .commit();
     }
+
+    getTvShows.execute(new GetTvShows.Callback() {
+      @Override public void onTvShowsLoaded(Collection<TvShow> tvShows) {
+        Toast.makeText(getBaseContext(), "Conversations loaded " + tvShows.size(),
+            Toast.LENGTH_LONG).show();
+      }
+
+      @Override public void onConnectionError() {
+        Toast.makeText(getBaseContext(), "Fake error", Toast.LENGTH_LONG).show();
+      }
+    });
   }
 
   @Override
