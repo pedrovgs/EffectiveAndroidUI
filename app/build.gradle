@@ -43,7 +43,7 @@ dependencies {
   compile 'com.squareup.dagger:dagger:1.2.+'
   compile 'com.jakewharton:butterknife:5.1.+'
   compile 'com.github.pedrovgs:renderers:1.1.+'
-
+  compile 'com.squareup.picasso:picasso:2.3.+'
 }
 
 task checkstyle(type: Checkstyle) {
