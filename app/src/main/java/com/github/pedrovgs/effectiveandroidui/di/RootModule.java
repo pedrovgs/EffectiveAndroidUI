@@ -14,7 +14,9 @@ import dagger.Module;
 @Module(
     includes = {
         FrameworkModule.class, ExecutorModule.class
-    }, injects = { TvShowsApplication.class, MainActivity.class }
+    }, injects = {
+    TvShowsApplication.class, MainActivity.class, MainActivity.PlaceholderFragment.class
+}
 )
 public class RootModule {
 

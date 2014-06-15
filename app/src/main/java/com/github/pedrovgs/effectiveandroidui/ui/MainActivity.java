@@ -1,19 +1,14 @@
 package com.github.pedrovgs.effectiveandroidui.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.github.pedrovgs.effectiveandroidui.R;
-import com.github.pedrovgs.effectiveandroidui.executor.Executor;
 import java.util.LinkedList;
 import java.util.List;
-import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity {
-
-  @Inject Executor executor;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +29,7 @@ public class MainActivity extends BaseActivity {
   /**
    * A placeholder fragment containing a simple view.
    */
-  public static class PlaceholderFragment extends Fragment {
-
-    public PlaceholderFragment() {
-    }
+  public static class PlaceholderFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
