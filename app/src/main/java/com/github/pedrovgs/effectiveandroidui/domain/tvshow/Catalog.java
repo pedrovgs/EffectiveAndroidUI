@@ -360,6 +360,9 @@ public class Catalog {
   }
 
   /**
+   * We should return a full clone of TvShow objects inside catalog because all this data is in
+   * memory and anyone can change it if we don't return only copies, but this is just a sample!
+   *
    * @return all available TvShow in the catalog.
    */
   public Collection<TvShow> getTvShows() {
@@ -368,6 +371,9 @@ public class Catalog {
 
   /**
    * Search a TvShow using a tv show identifier.
+   *
+   * We should return a clone of TvShow objects inside catalog because all this data is in
+   * memory and anyone can change it if we don't return only copies, but this is just a sample!
    *
    * @param tvShowId used to search inside the catalog.
    * @return a TvShow that matches with the parameter passed as identifier.
