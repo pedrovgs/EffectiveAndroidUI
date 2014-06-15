@@ -1,7 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity">
+
+  <!-- TvShowsFragment -->
+
+  <fragment
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowsFragment"
+      tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"/>
+
+</FrameLayout>
