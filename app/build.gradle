@@ -27,6 +27,8 @@ android {
   lintOptions {
     abortOnError = true
     disable 'InvalidPackage'
+    disable 'ContentDescription'
+    disable 'DefaultLocale'
   }
 
   packagingOptions {
