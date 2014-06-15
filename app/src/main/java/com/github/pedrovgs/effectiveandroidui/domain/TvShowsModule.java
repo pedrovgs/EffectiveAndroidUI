@@ -19,4 +19,8 @@ public class TvShowsModule {
   @Provides GetTvShows provideGetTvShowsInteractor(GetTvShowsInteractor interactor) {
     return interactor;
   }
+
+  @Provides GetTvShowById provideGetTvShowbyIdInteractor(GetTvShowByIdInteractor interactor) {
+    return interactor;
+  }
 }

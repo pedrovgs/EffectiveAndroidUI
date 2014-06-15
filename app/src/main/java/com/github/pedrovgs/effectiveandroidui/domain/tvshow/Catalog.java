@@ -1,5 +1,6 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
+import com.github.pedrovgs.effectiveandroidui.domain.exception.TvShowNotFoundException;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -363,5 +364,33 @@ public class Catalog {
    */
   public Collection<TvShow> getTvShows() {
     return (Set<TvShow>) tvShows.clone();
+  }
+
+  /**
+   * Search a TvShow using a tv show identifier.
+   *
+   * @param tvShowId used to search inside the catalog.
+   * @return a TvShow that matches with the parameter passed as identifier.
+   * @throws TvShowNotFoundException if there is no TvShow associated to the id passed as
+   * parameter.
+   */
+  public TvShow getTvShowById(String tvShowId) throws TvShowNotFoundException {
+    TvShow result = searchTvShowById(tvShowId);
+    if (result == null) {
+      throw new TvShowNotFoundException(
+          "The identifier" + tvShowId + "is not associated to any TvShow");
+    }
+    return result;
+  }
+
+  private TvShow searchTvShowById(String tvShowId) {
+    TvShow result = null;
+    for (TvShow tvShow : tvShows) {
+      if (tvShow.getTitle().equals(tvShowId)) {
+        result = tvShow;
+        break;
+      }
+    }
+    return result;
   }
 }
