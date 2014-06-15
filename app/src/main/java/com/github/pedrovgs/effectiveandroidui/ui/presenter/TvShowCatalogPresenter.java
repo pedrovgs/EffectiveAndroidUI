@@ -61,6 +61,14 @@ public class TvShowCatalogPresenter {
     //Empty
   }
 
+  public void onTvShowThumbnailClicked(final TvShow tvShow) {
+    view.showTvShow(tvShow);
+  }
+
+  public void onTvShowClicked(final TvShow tvShow) {
+    view.showTvShowInfo(tvShow);
+  }
+
   /**
    * Use GetTvShows interactor to obtain a collection of videos and render it using the view
    * object setted previously. If the interactor returns an error the presenter will show an error
@@ -105,5 +113,9 @@ public class TvShowCatalogPresenter {
     void showEmptyCase();
 
     void showDefaultTitle();
+
+    void showTvShowInfo(TvShow tvShow);
+
+    void showTvShow(TvShow tvShow);
   }
 }

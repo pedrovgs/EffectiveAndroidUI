@@ -8,8 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
+import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowCatalogPresenter;
 import com.pedrogomez.renderers.Renderer;
 import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
@@ -22,14 +24,16 @@ import javax.inject.Inject;
 public class TvShowRenderer extends Renderer<TvShow> {
 
   private final Context context;
+  private final TvShowCatalogPresenter tvShowCatalogPresenter;
 
   @InjectView(R.id.iv_thumbnail) ImageView thumbnailImageView;
   @InjectView(R.id.tv_title) TextView titleTextView;
   @InjectView(R.id.tv_seasons_counter) TextView seasonsCounterTextView;
 
   @Inject
-  public TvShowRenderer(Context context) {
+  public TvShowRenderer(Context context, TvShowCatalogPresenter tvShowCatalogPresenter) {
     this.context = context;
+    this.tvShowCatalogPresenter = tvShowCatalogPresenter;
   }
 
   @Override protected void setUpView(View rootView) {
@@ -49,6 +53,14 @@ public class TvShowRenderer extends Renderer<TvShow> {
     renderThumbnail(tvShow);
     renderTitle(tvShow);
     renderSeasonCounter(tvShow);
+  }
+
+  @OnClick(R.id.iv_thumbnail) void onThumbnailClicked() {
+    tvShowCatalogPresenter.onTvShowThumbnailClicked(getContent());
+  }
+
+  @OnClick(R.id.v_row_container) void onBackgroundClicked() {
+    tvShowCatalogPresenter.onTvShowClicked(getContent());
   }
 
   private TvShow renderThumbnail(TvShow tvShow) {
