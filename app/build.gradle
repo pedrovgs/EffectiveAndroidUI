@@ -28,7 +28,7 @@ android {
     abortOnError = true
     disable 'InvalidPackage'
   }
-  
+
   packagingOptions {
     exclude 'META-INF/services/javax.annotation.processing.Processor'
   }
@@ -42,6 +42,8 @@ dependencies {
   compile 'com.squareup.dagger:dagger-compiler:1.2.+'
   compile 'com.squareup.dagger:dagger:1.2.+'
   compile 'com.jakewharton:butterknife:5.1.+'
+  compile 'com.github.pedrovgs:renderers:1.1.+'
+
 }
 
 task checkstyle(type: Checkstyle) {
