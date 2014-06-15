@@ -23,7 +23,7 @@ public class BaseFragment extends Fragment {
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    injectViews();
+    injectViews(view);
   }
 
   /**
@@ -37,8 +37,10 @@ public class BaseFragment extends Fragment {
   /**
    * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
    * value.
+   *
+   * @param view to extract each widget injected in the fragment.
    */
-  private void injectViews() {
-    ButterKnife.inject(this, getActivity());
+  private void injectViews(final View view) {
+    ButterKnife.inject(this, view);
   }
 }

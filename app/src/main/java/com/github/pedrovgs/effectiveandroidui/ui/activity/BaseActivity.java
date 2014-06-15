@@ -35,7 +35,8 @@ public abstract class BaseActivity extends ActionBarActivity {
    */
   private void injectDependencies() {
     TvShowsApplication tvShowsApplication = (TvShowsApplication) getApplication();
-    tvShowsApplication.plus(getModules());
+    List<Object> activityScopeModules = getModules();
+    tvShowsApplication.plus(activityScopeModules);
     tvShowsApplication.inject(this);
   }
 

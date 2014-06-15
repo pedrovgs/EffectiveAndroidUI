@@ -46,7 +46,7 @@ public class TvShowsApplication extends Application {
           "You can't plus a null module, review your getModules() implementation");
     }
     for (Object module : modules) {
-      objectGraph.plus(modules);
+      objectGraph.plus(module);
     }
   }
 
