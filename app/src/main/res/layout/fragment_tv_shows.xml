@@ -28,6 +28,7 @@
   <GridView
       android:id="@+id/gv_tv_shows"
       android:layout_width="fill_parent"
-      android:layout_height="fill_parent"/>
+      android:layout_height="fill_parent"
+      android:numColumns="@integer/tv_shows_grid_view_num_colums"/>
 
 </RelativeLayout>

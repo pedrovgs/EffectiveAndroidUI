@@ -2,7 +2,6 @@ package com.github.pedrovgs.effectiveandroidui.ui.presenter;
 
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
-import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowsFragment;
 import java.util.Collection;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -30,7 +29,10 @@ public class TvShowsPresenter {
     this.getTvShowsInteractor = getTvShowsInteractor;
   }
 
-  public void setView(TvShowsFragment view) {
+  public void setView(View view) {
+    if (view == null) {
+      throw new IllegalArgumentException("You can't set a null view");
+    }
     this.view = view;
   }
 
@@ -39,6 +41,7 @@ public class TvShowsPresenter {
    * lifecycle.
    */
   public void initialize() {
+    checkViewAlreadySetted();
     loadVideos();
   }
 
@@ -47,6 +50,7 @@ public class TvShowsPresenter {
    * from a pause state.
    */
   public void resume() {
+    checkViewAlreadySetted();
     //Empty
   }
 
@@ -57,6 +61,11 @@ public class TvShowsPresenter {
     //Empty
   }
 
+  /**
+   * Use GetTvShows interactor to obtain a collection of videos and render it using the view
+   * object setted previously. If the interactor returns an error the presenter will show an error
+   * message and the empty case. In both cases, the progress bar visibility will be hidden.
+   */
   private void loadVideos() {
     getTvShowsInteractor.execute(new GetTvShows.Callback() {
       @Override public void onTvShowsLoaded(Collection<TvShow> tvShows) {
@@ -72,6 +81,12 @@ public class TvShowsPresenter {
         view.showDefaultTitle();
       }
     });
+  }
+
+  private void checkViewAlreadySetted() {
+    if (view == null) {
+      throw new IllegalArgumentException("Remember to set a view for this presenter");
+    }
   }
 
   /**

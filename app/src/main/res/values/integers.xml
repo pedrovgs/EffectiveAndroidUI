@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <integer name="tv_shows_grid_view_num_colums">2</integer>
+</resources>
