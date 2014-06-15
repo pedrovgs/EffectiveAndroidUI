@@ -7,7 +7,7 @@ buildscript {
   }
 }
 apply plugin: 'android'
-apply from: "$rootDir/checkstyle.gradle"
+apply plugin: 'checkstyle'
 
 repositories {
   mavenCentral()
@@ -45,6 +45,11 @@ dependencies {
   compile 'com.squareup.dagger:dagger:1.2.+'
 }
 
-checkstyle {
-  showViolations true
+task checkstyle(type: Checkstyle) {
+  configFile file('../config/checkstyle/checkstyle.xml')
+  source 'src/main/java'
+  include '**/*.java'
+  exclude '**/gen/**'
+
+  classpath = files(project.configurations.compile.asPath)
 }
