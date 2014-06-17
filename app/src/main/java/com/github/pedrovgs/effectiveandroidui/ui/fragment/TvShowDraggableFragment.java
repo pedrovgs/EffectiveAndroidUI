@@ -31,7 +31,7 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   @InjectView(R.id.draggable_view) DraggableView draggable_view;
   @InjectView(R.id.iv_fan_art) ImageView iv_fan_art;
-  @InjectView(R.id.lv_episodes) ListView lv_episodes;
+  @InjectView(R.id.lv_chapters) ListView lv_chapters;
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.v_empty_case) View v_empty_case;
 
