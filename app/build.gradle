@@ -46,6 +46,7 @@ dependencies {
   compile 'com.jakewharton:butterknife:5.1.+'
   compile 'com.github.pedrovgs:renderers:1.1.+'
   compile 'com.squareup.picasso:picasso:2.3.+'
+  compile 'com.github.pedrovgs:draggablepanel:1.+'
 }
 
 task checkstyle(type: Checkstyle) {

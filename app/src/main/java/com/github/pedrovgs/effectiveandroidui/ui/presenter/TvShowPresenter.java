@@ -1,5 +1,11 @@
 package com.github.pedrovgs.effectiveandroidui.ui.presenter;
 
+import com.github.pedrovgs.effectiveandroidui.domain.GetTvShowById;
+import com.github.pedrovgs.effectiveandroidui.domain.tvshow.ChapterCollection;
+import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Presenter created to show a TvShow.
  *
@@ -11,17 +17,84 @@ package com.github.pedrovgs.effectiveandroidui.ui.presenter;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
+
+@Singleton
 public class TvShowPresenter extends Presenter {
 
-  @Override public void initialize() {
+  private final GetTvShowById getTvShowById;
 
+  @Inject
+  public TvShowPresenter(GetTvShowById getTvShowById) {
+    this.getTvShowById = getTvShowById;
+  }
+
+  private View view;
+
+  @Override public void initialize() {
+    //Empty
   }
 
   @Override public void resume() {
-
+    //Empty
   }
 
   @Override public void pause() {
+    //Empty
+  }
 
+  public void setView(View view) {
+    this.view = view;
+  }
+
+  public void loadTvShow(final String tvShowId) {
+    view.hideCurrentTvShow();
+    view.hideEmptyCase();
+    view.showLoading();
+    getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
+      @Override public void onTvShowLoaded(TvShow tvShow) {
+        view.showFanArt(tvShow.getFanArt());
+        view.showEpisodes(tvShow.getEpisodes());
+        view.hideLoading();
+        view.showTvShow();
+      }
+
+      @Override public void onTvShowNotFound() {
+        view.hideLoading();
+        view.showEmptyCase();
+        view.showTvShowNotFoundMessage();
+      }
+
+      @Override public void onConnectionError() {
+        view.hideLoading();
+        view.showEmptyCase();
+        view.showConnectionErrorMessage();
+      }
+    });
+  }
+
+  /**
+   * View interface created to abstract the view implementation used in this sample.
+   */
+  public interface View {
+
+    void hideEmptyCase();
+
+    void showLoading();
+
+    void showFanArt(final String tvShowFanArtUrl);
+
+    void showEpisodes(final ChapterCollection episodes);
+
+    void hideLoading();
+
+    void showEmptyCase();
+
+    void showTvShowNotFoundMessage();
+
+    void showConnectionErrorMessage();
+
+    void hideCurrentTvShow();
+
+    void showTvShow();
   }
 }

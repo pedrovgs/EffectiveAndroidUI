@@ -1,0 +1,49 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <ProgressBar
+      android:id="@+id/pb_loading"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+
+  <View
+      android:id="@+id/v_empty_case"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+
+  <com.github.pedrovgs.DraggableView
+      xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/draggable_view"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:visibility="gone"
+      draggable_view:top_view_id="@+id/iv_fan_art"
+      draggable_view:bottom_view_id="@+id/lv_episodes"
+      draggable_view:top_view_x_scale_factor="2"
+      draggable_view:top_view_y_scale_factor="2"
+      draggable_view:top_view_margin_right="10dip"
+      draggable_view:top_view_margin_bottom="10dip">
+
+    <!-- ListView Episodes -->
+
+    <ListView
+        android:id="@+id/lv_episodes"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/iv_fan_art"/>
+
+    <!-- TvShow Fan Art -->
+
+    <ImageView
+        android:id="@+id/iv_fan_art"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip"
+        android:layout_alignParentTop="true"/>
+
+  </com.github.pedrovgs.DraggableView>
+
+</FrameLayout>

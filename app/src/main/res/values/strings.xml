@@ -5,5 +5,6 @@
   <string name="app_name_with_chapter_counter">EffectiveAndroidUI - %1$d Tv Shows</string>
   <string name="connection_error_message">Ups! Something went wrong :(</string>
   <string name="seasons_counter">%1$d seasons</string>
+  <string name="tv_show_not_found">TV Show not found exception ;)</string>
 
 </resources>

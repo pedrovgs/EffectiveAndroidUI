@@ -67,7 +67,8 @@ public class TvShowCatalogPresenter extends Presenter {
    */
   private void loadVideos() {
     getTvShowsInteractor.execute(new GetTvShows.Callback() {
-      @Override public void onTvShowsLoaded(Collection<TvShow> tvShows) {
+      @Override public void onTvShowsLoaded(final Collection<TvShow> tvShows) {
+
         view.renderVideos(tvShows);
         view.hideLoading();
         view.updateTitleWithCountOfVideow(tvShows.size());
