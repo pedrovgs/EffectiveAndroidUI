@@ -74,9 +74,7 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   @Override public void showFanArt(final String tvShowFanArtUrl) {
     iv_fan_art.setVisibility(View.VISIBLE);
-    //I'm going to comment this line because I'm in a train and I don't have internet :S
-    //Picasso.with(getActivity()).load(tvShowFanArtUrl).into(iv_fan_art);
-    Picasso.with(getActivity()).load(R.drawable.app_icon).into(iv_fan_art);
+    Picasso.with(getActivity()).load(tvShowFanArtUrl).into(iv_fan_art);
   }
 
   @Override public void showChapters(ChapterCollection chapters) {
@@ -101,11 +99,6 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @Override public void showConnectionErrorMessage() {
     String connectionErrorMessage = getString(R.string.connection_error_message);
     ToastUtils.showError(connectionErrorMessage, getActivity());
-  }
-
-  @Override public void hideCurrentTvShow() {
-    draggable_view.setVisibility(View.GONE);
-    draggable_view.closeToRight();
   }
 
   @Override public void showTvShow() {

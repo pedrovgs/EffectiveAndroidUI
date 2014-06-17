@@ -47,7 +47,6 @@ public class TvShowPresenter extends Presenter {
   }
 
   public void loadTvShow(final String tvShowId) {
-    view.hideCurrentTvShow();
     view.hideEmptyCase();
     view.showLoading();
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
@@ -92,8 +91,6 @@ public class TvShowPresenter extends Presenter {
     void showTvShowNotFoundMessage();
 
     void showConnectionErrorMessage();
-
-    void hideCurrentTvShow();
 
     void showTvShow();
   }
