@@ -20,6 +20,7 @@ import javax.inject.Inject;
 
 /**
  * Fragment created to show a collection of TvShows inside a GridView.
+ *
  * This Fragment uses a Model View Presenter implementation to implement all the presentation
  * logic. Review TvShowCatalogPresenter to get more info about the implementation.
  *
