@@ -1,7 +1,8 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
+import java.util.Collection;
 import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Collection of chapters. Contains all the chapters information for each TvShow. This
@@ -17,8 +18,8 @@ public class ChapterCollection {
     this.chapters = new LinkedHashSet<Chapter>();
   }
 
-  public List<Chapter> getChapters() {
-    return (List<Chapter>) chapters.clone();
+  public Collection<Chapter> getChapters() {
+    return (Set<Chapter>) chapters.clone();
   }
 
   public void add(Chapter chapter) {

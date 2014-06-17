@@ -9,17 +9,20 @@ import java.util.List;
 /**
  * AdapteeCollection implementation for Chapters.
  *
+ * I've changed the name of this collection form ChapterCollection to ChapterAdapteeCollection
+ * because there is a name collision.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
-public class ChapterCollection implements AdapteeCollection<Chapter> {
+public class ChapterAdapteeCollection implements AdapteeCollection<Chapter> {
 
   private final List<Chapter> chapters;
 
-  public ChapterCollection() {
+  public ChapterAdapteeCollection() {
     this(new ArrayList<Chapter>());
   }
 
-  public ChapterCollection(List<Chapter> chapters) {
+  public ChapterAdapteeCollection(List<Chapter> chapters) {
     this.chapters = chapters;
   }
 
@@ -45,5 +48,9 @@ public class ChapterCollection implements AdapteeCollection<Chapter> {
 
   @Override public void removeAll(Collection<Chapter> chapters) {
     this.chapters.removeAll(chapters);
+  }
+
+  public void clear() {
+    chapters.clear();
   }
 }

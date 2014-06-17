@@ -23,7 +23,7 @@ public class ChapterRendererAdapterFactory {
   }
 
   public RendererAdapter<Chapter> getChapterRendererAdapter(
-      final ChapterCollection chapterCollection) {
+      final ChapterAdapteeCollection chapterCollection) {
     return new ChapterRendererAdapter(layoutInflater, rendererBuilder, chapterCollection);
   }
 }

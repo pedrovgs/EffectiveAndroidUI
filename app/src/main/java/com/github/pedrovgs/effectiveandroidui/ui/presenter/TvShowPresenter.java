@@ -53,7 +53,7 @@ public class TvShowPresenter extends Presenter {
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
         view.showFanArt(tvShow.getFanArt());
-        view.showEpisodes(tvShow.getEpisodes());
+        view.showChapters(tvShow.getEpisodes());
         view.hideLoading();
         view.showTvShow();
       }
@@ -83,7 +83,7 @@ public class TvShowPresenter extends Presenter {
 
     void showFanArt(final String tvShowFanArtUrl);
 
-    void showEpisodes(final ChapterCollection episodes);
+    void showChapters(final ChapterCollection episodes);
 
     void hideLoading();
 

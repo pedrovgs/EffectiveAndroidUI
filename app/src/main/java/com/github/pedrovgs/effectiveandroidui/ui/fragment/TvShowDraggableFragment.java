@@ -13,6 +13,8 @@ import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.ChapterCollection;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowPresenter;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterAdapteeCollection;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapter;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapterFactory;
 import com.github.pedrovgs.effectiveandroidui.util.ToastUtils;
 import com.squareup.picasso.Picasso;
@@ -29,7 +31,10 @@ import javax.inject.Inject;
 public class TvShowDraggableFragment extends BaseFragment implements TvShowPresenter.View {
 
   @Inject TvShowPresenter tvShowPresenter;
-  @Inject ChapterRendererAdapterFactory tvShowRendererAdapterFactory;
+  @Inject ChapterRendererAdapterFactory chapterRendererAdapterFactory;
+
+  private ChapterRendererAdapter adapter;
+  private ChapterAdapteeCollection chapterAdapteeCollection = new ChapterAdapteeCollection();
 
   @InjectView(R.id.draggable_view) DraggableView draggable_view;
   @InjectView(R.id.iv_fan_art) ImageView iv_fan_art;
@@ -46,6 +51,13 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
     super.onViewCreated(view, savedInstanceState);
     tvShowPresenter.setView(this);
     initializeDraggableView();
+    initializeListView();
+  }
+
+  private void initializeListView() {
+    adapter = (ChapterRendererAdapter) chapterRendererAdapterFactory.getChapterRendererAdapter(
+        chapterAdapteeCollection);
+    lv_chapters.setAdapter(adapter);
   }
 
   public void showTvShow(final TvShow tvShow) {
@@ -67,8 +79,10 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
     Picasso.with(getActivity()).load(R.drawable.app_icon).into(iv_fan_art);
   }
 
-  @Override public void showEpisodes(ChapterCollection episodes) {
-    //Load episodes here :)
+  @Override public void showChapters(ChapterCollection chapters) {
+    chapterAdapteeCollection.clear();
+    chapterAdapteeCollection.addAll(chapters.getChapters());
+    adapter.notifyDataSetChanged();
   }
 
   @Override public void hideLoading() {

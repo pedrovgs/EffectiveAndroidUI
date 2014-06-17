@@ -30,6 +30,7 @@
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
       android:visibility="gone"
+      android:background="#000000"
       draggable_view:top_view_id="@+id/iv_fan_art"
       draggable_view:bottom_view_id="@+id/lv_chapters"
       draggable_view:top_view_x_scale_factor="2"
