@@ -13,6 +13,7 @@ import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.ChapterCollection;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowPresenter;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapterFactory;
 import com.github.pedrovgs.effectiveandroidui.util.ToastUtils;
 import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
@@ -28,6 +29,7 @@ import javax.inject.Inject;
 public class TvShowDraggableFragment extends BaseFragment implements TvShowPresenter.View {
 
   @Inject TvShowPresenter tvShowPresenter;
+  @Inject ChapterRendererAdapterFactory tvShowRendererAdapterFactory;
 
   @InjectView(R.id.draggable_view) DraggableView draggable_view;
   @InjectView(R.id.iv_fan_art) ImageView iv_fan_art;

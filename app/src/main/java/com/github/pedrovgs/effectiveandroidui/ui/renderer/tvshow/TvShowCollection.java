@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * AdapteeCollection implementatio for TvShow.
+ * AdapteeCollection implementation for TvShow.
  *
  * @author Pedro Vicente Gómez Sánchez
  */

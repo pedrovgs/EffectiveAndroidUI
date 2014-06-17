@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+  <!-- Chapter number -->
+
+  <TextView android:id="@+id/tv_chapter_number"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_centerVertical="true"/>
+
+  <!-- Chapter title -->
+
+  <TextView android:id="@+id/tv_chapter_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@id/tv_chapter_number"/>
+
+  <!-- Chapter publish date -->
+
+  <TextView android:id="@+id/tv_chapter_publish_date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@id/tv_chapter_number"
+      android:layout_below="@id/tv_chapter_title"
+      android:gravity="bottom"/>
+</RelativeLayout>
