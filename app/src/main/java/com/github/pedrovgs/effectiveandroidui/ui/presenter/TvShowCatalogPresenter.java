@@ -18,7 +18,7 @@ import javax.inject.Singleton;
  * @author Pedro Vicente Gómez Sánchez
  */
 @Singleton
-public class TvShowCatalogPresenter {
+public class TvShowCatalogPresenter extends Presenter {
 
   private GetTvShows getTvShowsInteractor;
 
@@ -36,27 +36,18 @@ public class TvShowCatalogPresenter {
     this.view = view;
   }
 
-  /**
-   * Called when the presenter is initialized, this method represents the start of the presenter
-   * lifecycle.
-   */
+  @Override
   public void initialize() {
     checkViewAlreadySetted();
     loadVideos();
   }
 
-  /**
-   * Called when the presenter is resumed. After the initialization and when the presenter comes
-   * from a pause state.
-   */
+  @Override
   public void resume() {
     checkViewAlreadySetted();
-    //Empty
   }
 
-  /**
-   * Called when the presenter is paused.
-   */
+  @Override
   public void pause() {
     //Empty
   }
