@@ -52,6 +52,7 @@ public class TvShowPresenter extends Presenter {
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
         view.showFanArt(tvShow.getFanArt());
+        view.showTvShowTitle(tvShow.getTitle().toUpperCase());
         view.showChapters(tvShow.getEpisodes());
         view.hideLoading();
         view.showTvShow();
@@ -93,5 +94,7 @@ public class TvShowPresenter extends Presenter {
     void showConnectionErrorMessage();
 
     void showTvShow();
+
+    void showTvShowTitle(String tvShowTitle);
   }
 }

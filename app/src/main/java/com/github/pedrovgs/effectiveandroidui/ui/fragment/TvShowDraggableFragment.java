@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import butterknife.InjectView;
 import com.github.pedrovgs.DraggableView;
 import com.github.pedrovgs.effectiveandroidui.R;
@@ -42,6 +43,8 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.v_empty_case) View v_empty_case;
 
+  private TextView headr_tv_show_chapters;
+
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     return inflater.inflate(R.layout.fragment_tv_show, container, false);
@@ -55,6 +58,9 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   }
 
   private void initializeListView() {
+    headr_tv_show_chapters = (TextView) LayoutInflater.from(getActivity())
+        .inflate(R.layout.header_tv_show_chapters, null);
+    lv_chapters.addHeaderView(headr_tv_show_chapters);
     adapter = (ChapterRendererAdapter) chapterRendererAdapterFactory.getChapterRendererAdapter(
         chapterAdapteeCollection);
     lv_chapters.setAdapter(adapter);
@@ -75,6 +81,11 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @Override public void showFanArt(final String tvShowFanArtUrl) {
     iv_fan_art.setVisibility(View.VISIBLE);
     Picasso.with(getActivity()).load(tvShowFanArtUrl).into(iv_fan_art);
+  }
+
+  @Override public void showTvShowTitle(final String tvShowTitle) {
+    String tvShowHeaderTitle = getString(R.string.tv_show_title, tvShowTitle);
+    headr_tv_show_chapters.setText(tvShowHeaderTitle);
   }
 
   @Override public void showChapters(ChapterCollection chapters) {
