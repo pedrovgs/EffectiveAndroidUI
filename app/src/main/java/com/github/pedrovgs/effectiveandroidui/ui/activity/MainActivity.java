@@ -1,12 +1,14 @@
 package com.github.pedrovgs.effectiveandroidui.ui.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShowById;
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowDraggableFragment;
+import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowCatalogModule;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
   @Inject GetTvShowById getTvShowsById;
 
   private TvShowDraggableFragment tvShowDraggableFragment;
+  private TvShowFragment tvShowFragment;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
     tvShowDraggableFragment =
         (TvShowDraggableFragment) getSupportFragmentManager().findFragmentById(
             R.id.f_tv_show_draggable);
+    tvShowFragment = (TvShowFragment) getSupportFragmentManager().findFragmentById(R.id.f_tv_show);
   }
 
   @Override
@@ -36,6 +40,23 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
   }
 
   @Override public void onTvShowClicked(final TvShow tvShow) {
-    tvShowDraggableFragment.showTvShow(tvShow);
+    showTvShowOnTvShowDraggableFragment(tvShow);
+    showTvShowOnTvShowFragment(tvShow);
+  }
+
+  private void showTvShowOnTvShowDraggableFragment(TvShow tvShow) {
+    if (isFragmentAvailable(tvShowDraggableFragment)) {
+      //tvShowDraggableFragment.showTvShow(tvShow.getTitle());
+    }
+  }
+
+  private void showTvShowOnTvShowFragment(TvShow tvShow) {
+    if (isFragmentAvailable(tvShowFragment)) {
+      tvShowFragment.showTvShow(tvShow.getTitle());
+    }
+  }
+
+  private boolean isFragmentAvailable(Fragment fragment) {
+    return fragment != null;
   }
 }

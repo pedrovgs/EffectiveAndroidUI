@@ -62,7 +62,7 @@ public class TvShow {
   /**
    * @return the tv show ChapterCollection.
    */
-  public ChapterCollection getEpisodes() {
+  public ChapterCollection getChapters() {
     return episodes;
   }
 

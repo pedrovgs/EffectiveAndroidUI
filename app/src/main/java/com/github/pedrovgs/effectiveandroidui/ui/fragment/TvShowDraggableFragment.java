@@ -11,7 +11,6 @@ import butterknife.InjectView;
 import com.github.pedrovgs.DraggableView;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.ChapterCollection;
-import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowPresenter;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterAdapteeCollection;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapter;
@@ -60,8 +59,8 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
     lv_chapters.setAdapter(adapter);
   }
 
-  public void showTvShow(final TvShow tvShow) {
-    tvShowPresenter.loadTvShow(tvShow.getTitle());
+  public void showTvShow(final String tvShowId) {
+    tvShowPresenter.loadTvShow(tvShowId);
   }
 
   @Override public void hideEmptyCase() {

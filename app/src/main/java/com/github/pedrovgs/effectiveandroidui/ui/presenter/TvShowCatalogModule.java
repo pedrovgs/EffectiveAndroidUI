@@ -4,6 +4,7 @@ import com.github.pedrovgs.effectiveandroidui.domain.tvshow.Chapter;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowDraggableFragment;
+import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRenderer;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererBuilder;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.tvshow.TvShowRenderer;
@@ -18,7 +19,8 @@ import java.util.LinkedList;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-@Module(complete = false, injects = { TvShowCatalogFragment.class, TvShowDraggableFragment.class })
+@Module(complete = false,
+    injects = { TvShowCatalogFragment.class, TvShowDraggableFragment.class, TvShowFragment.class })
 public class TvShowCatalogModule {//Rename to TvShowUIModule
 
   @Provides TvShowRendererBuilder provideTvShowRendererBuilder(TvShowRenderer tvShowRenderer) {

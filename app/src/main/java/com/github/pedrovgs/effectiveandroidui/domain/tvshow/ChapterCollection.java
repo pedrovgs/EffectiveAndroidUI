@@ -1,6 +1,7 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import java.util.Set;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class ChapterCollection {
+public class ChapterCollection implements Iterable<Chapter> {
 
   private final LinkedHashSet<Chapter> chapters;
 
@@ -24,5 +25,9 @@ public class ChapterCollection {
 
   public void add(Chapter chapter) {
     this.chapters.add(chapter);
+  }
+
+  @Override public Iterator<Chapter> iterator() {
+    return chapters.iterator();
   }
 }

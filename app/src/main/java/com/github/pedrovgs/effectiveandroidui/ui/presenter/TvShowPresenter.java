@@ -53,7 +53,7 @@ public class TvShowPresenter extends Presenter {
       @Override public void onTvShowLoaded(TvShow tvShow) {
         view.showFanArt(tvShow.getFanArt());
         view.showTvShowTitle(tvShow.getTitle().toUpperCase());
-        view.showChapters(tvShow.getEpisodes());
+        view.showChapters(tvShow.getChapters());
         view.hideLoading();
         view.showTvShow();
       }

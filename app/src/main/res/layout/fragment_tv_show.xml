@@ -36,7 +36,8 @@
         android:id="@+id/iv_fan_art"
         android:layout_width="fill_parent"
         android:layout_height="200dip"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:visibility="gone"/>
 
     <!-- ListView Chapters -->
 
@@ -44,7 +45,8 @@
         android:id="@+id/lv_chapters"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#000000"/>
+        android:background="#000000"
+        android:visibility="gone"/>
 
   </LinearLayout>
 

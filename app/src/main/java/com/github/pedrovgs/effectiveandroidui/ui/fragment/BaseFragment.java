@@ -52,4 +52,6 @@ public abstract class BaseFragment extends Fragment {
   private void injectViews(final View view) {
     ButterKnife.inject(this, view);
   }
+
+
 }

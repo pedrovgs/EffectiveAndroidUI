@@ -24,4 +24,12 @@
       class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowDraggableFragment"
       tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"/>
 
+
+  <fragment
+      android:id="@+id/f_tv_show"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowFragment"
+      tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"/>
+
 </FrameLayout>
