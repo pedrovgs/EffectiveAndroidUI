@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
 
   private void showTvShowOnTvShowDraggableFragment(TvShow tvShow) {
     if (isFragmentAvailable(tvShowDraggableFragment)) {
-      //tvShowDraggableFragment.showTvShow(tvShow.getTitle());
+      tvShowDraggableFragment.showTvShow(tvShow.getTitle());
     }
   }
 
