@@ -34,6 +34,7 @@ public class TvShowViewModel {
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
         listener.onFanArtLoaded(tvShow.getFanArt());
+        listener.onTvShowTitleLoaded(tvShow.getTitle());
         listener.onChaptersLoaded(getChaptersViewModel(tvShow.getChapters()));
         listener.onVisibilityChanged(true);
         listener.onLoadVisibilityChanged(false);
@@ -73,6 +74,8 @@ public class TvShowViewModel {
   public interface Listener {
 
     void onFanArtLoaded(final String fanArt);
+
+    void onTvShowTitleLoaded(final String tvShowTitle);
 
     void onChaptersLoaded(final List<ChapterViewModel> chapters);
 

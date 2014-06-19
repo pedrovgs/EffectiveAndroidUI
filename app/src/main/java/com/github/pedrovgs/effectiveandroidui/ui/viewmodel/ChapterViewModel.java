@@ -17,4 +17,12 @@ public class ChapterViewModel {
   public ChapterViewModel(Chapter chapter) {
     this.chapter = chapter;
   }
+
+  public String getTitle() {
+    return chapter.getTitle();
+  }
+
+  public String getPublishDate() {
+    return chapter.getPublishDate();
+  }
 }

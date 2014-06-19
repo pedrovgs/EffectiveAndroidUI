@@ -6,7 +6,7 @@ import com.pedrogomez.renderers.RendererAdapter;
 import javax.inject.Inject;
 
 /**
- * Factory created to provide RendererAdapter<TvShow> implementations.
+ * Factory created to provide RendererAdapter<Chapter> implementations.
  *
  * @author Pedro Vicente Gómez Sánchez
  */

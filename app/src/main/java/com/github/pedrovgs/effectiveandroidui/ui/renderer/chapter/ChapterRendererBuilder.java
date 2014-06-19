@@ -6,7 +6,7 @@ import com.pedrogomez.renderers.RendererBuilder;
 import java.util.Collection;
 
 /**
- * RendererBuilder extension created to provide Renderer<TvShow> implementations.
+ * RendererBuilder extension created to provide Renderer<Chapter> implementations.
  *
  * If you want to lear more about how to use Renderers take a look to this project:
  * https://github.com/pedrovgs/Renderers

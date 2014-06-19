@@ -9,9 +9,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.InjectView;
 import com.github.pedrovgs.effectiveandroidui.R;
-import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterAdapteeCollection;
-import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapter;
-import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapterFactory;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapterviewmodel.ChapterViewModelCollection;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapterviewmodel.ChapterViewModelRendererAdapter;
+import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapterviewmodel.ChapterViewModelRendererAdapterFactory;
 import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.ChapterViewModel;
 import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.TvShowViewModel;
 import com.github.pedrovgs.effectiveandroidui.util.ToastUtils;
@@ -32,20 +32,21 @@ import javax.inject.Inject;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-public class TvShowFragment extends BaseFragment implements TvShowViewModel.Listener {
+@SuppressWarnings("ALL") public class TvShowFragment extends BaseFragment
+    implements TvShowViewModel.Listener {
 
   @Inject TvShowViewModel tvShowViewModel;
-  @Inject ChapterRendererAdapterFactory chapterRendererAdapterFactory;
+  @Inject ChapterViewModelRendererAdapterFactory chapterRendererAdapterFactory;
 
-  private ChapterRendererAdapter adapter;
-  private ChapterAdapteeCollection chapterAdapteeCollection = new ChapterAdapteeCollection();
+  private ChapterViewModelRendererAdapter adapter;
+  private ChapterViewModelCollection chapterAdapteeCollection = new ChapterViewModelCollection();
 
   @InjectView(R.id.iv_fan_art) ImageView iv_fan_art;
   @InjectView(R.id.lv_chapters) ListView lv_chapters;
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.v_empty_case) View v_empty_case;
 
-  private TextView headr_tv_show_chapters;
+  private TextView header_tv_show_chapters;
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
@@ -65,8 +66,15 @@ public class TvShowFragment extends BaseFragment implements TvShowViewModel.List
     Picasso.with(getActivity()).load(fanArt).into(iv_fan_art);
   }
 
+  @Override public void onTvShowTitleLoaded(final String tvShowTitle) {
+    String tvShowHeaderTitle = getString(R.string.tv_show_title, tvShowTitle);
+    header_tv_show_chapters.setText(tvShowHeaderTitle);
+  }
+
   @Override public void onChaptersLoaded(List<ChapterViewModel> chapters) {
-    //Empty for now
+    chapterAdapteeCollection.clear();
+    chapterAdapteeCollection.addAll(chapters);
+    adapter.notifyDataSetChanged();
   }
 
   @Override public void onVisibilityChanged(final boolean visible) {
@@ -92,11 +100,12 @@ public class TvShowFragment extends BaseFragment implements TvShowViewModel.List
   }
 
   private void initializeListView() {
-    headr_tv_show_chapters = (TextView) LayoutInflater.from(getActivity())
+    header_tv_show_chapters = (TextView) LayoutInflater.from(getActivity())
         .inflate(R.layout.header_tv_show_chapters, null);
-    lv_chapters.addHeaderView(headr_tv_show_chapters);
-    adapter = (ChapterRendererAdapter) chapterRendererAdapterFactory.getChapterRendererAdapter(
-        chapterAdapteeCollection);
+    lv_chapters.addHeaderView(header_tv_show_chapters);
+    adapter =
+        (ChapterViewModelRendererAdapter) chapterRendererAdapterFactory.getChapterRendererAdapter(
+            chapterAdapteeCollection);
     lv_chapters.setAdapter(adapter);
   }
 
