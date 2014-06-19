@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import butterknife.ButterKnife;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
+import com.github.pedrovgs.effectiveandroidui.di.ActivityModule;
 import dagger.ObjectGraph;
 import java.util.List;
 
@@ -48,6 +49,7 @@ public abstract class BaseActivity extends ActionBarActivity {
   private void injectDependencies() {
     TvShowsApplication tvShowsApplication = (TvShowsApplication) getApplication();
     List<Object> activityScopeModules = getModules();
+    activityScopeModules.add(new ActivityModule(this));
     activityScopeGraph = tvShowsApplication.plus(activityScopeModules);
     inject(this);
   }

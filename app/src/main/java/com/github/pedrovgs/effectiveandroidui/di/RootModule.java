@@ -22,7 +22,7 @@ import dagger.Provides;
     injects = {
         TvShowsApplication.class, MainActivity.class
     }, library = true)
-public class RootModule {
+public final class RootModule {
 
   private final Context context;
 

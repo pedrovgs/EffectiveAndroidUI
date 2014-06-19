@@ -9,7 +9,7 @@ import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowDraggableFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowFragment;
-import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowCatalogModule;
+import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowUIModule;
 import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
   @Override
   protected List<Object> getModules() {
     LinkedList<Object> modules = new LinkedList<Object>();
-    modules.add(new TvShowCatalogModule());
+    modules.add(new TvShowUIModule());
     return modules;
   }
 

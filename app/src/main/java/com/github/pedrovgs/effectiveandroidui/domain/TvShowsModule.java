@@ -9,7 +9,7 @@ import javax.inject.Singleton;
  * @author Pedro Vicente Gómez Sánchez
  */
 @Module(library = true, complete = false)
-public class TvShowsModule {
+public final class TvShowsModule {
 
   @Provides @Singleton Catalog provideCatalog() {
     return new Catalog();

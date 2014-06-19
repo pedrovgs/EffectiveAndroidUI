@@ -24,7 +24,7 @@ import java.util.LinkedList;
  */
 @Module(complete = false,
     injects = { TvShowCatalogFragment.class, TvShowDraggableFragment.class, TvShowFragment.class })
-public class TvShowCatalogModule {//Rename to TvShowUIModule
+public final class TvShowUIModule {
 
   @Provides TvShowRendererBuilder provideTvShowRendererBuilder(TvShowRenderer tvShowRenderer) {
     LinkedList<Renderer<TvShow>> renderers = new LinkedList<Renderer<TvShow>>();
