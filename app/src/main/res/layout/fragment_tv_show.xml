@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <!-- ProgressBar -->
+
+  <ProgressBar
+      android:id="@+id/pb_loading"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+
+  <!-- EmptyCase -->
+
+  <View
+      android:id="@+id/v_empty_case"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+
+  <!-- DraggableView -->
+
+  <!--If you want to lear more about how to use DraggablePanel take a look to this project: https://github.com/pedrovgs/DraggablePanel -->
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:visibility="visible"
+      android:orientation="vertical">
+
+    <!-- TvShow Fan Art -->
+
+    <ImageView
+        android:id="@+id/iv_fan_art"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip"
+        android:layout_alignParentTop="true"/>
+
+    <!-- ListView Chapters -->
+
+    <ListView
+        android:id="@+id/lv_chapters"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#000000"/>
+
+  </LinearLayout>
+
+</FrameLayout>
