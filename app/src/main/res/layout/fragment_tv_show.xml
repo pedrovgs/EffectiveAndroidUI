@@ -4,26 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <!-- ProgressBar -->
-
-  <ProgressBar
-      android:id="@+id/pb_loading"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:visibility="gone"/>
-
-  <!-- EmptyCase -->
-
-  <View
-      android:id="@+id/v_empty_case"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:visibility="gone"/>
-
-  <!-- DraggableView -->
-
-  <!--If you want to lear more about how to use DraggablePanel take a look to this project: https://github.com/pedrovgs/DraggablePanel -->
-
   <LinearLayout
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
@@ -49,5 +29,21 @@
         android:visibility="gone"/>
 
   </LinearLayout>
+
+  <!-- ProgressBar -->
+
+  <ProgressBar
+      android:id="@+id/pb_loading"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"/>
+
+  <!-- EmptyCase -->
+
+  <View
+      android:id="@+id/v_empty_case"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
 
 </FrameLayout>

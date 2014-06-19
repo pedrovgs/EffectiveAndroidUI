@@ -29,8 +29,7 @@ public class TvShowViewModel {
   }
 
   public void loadTvShow(final String tvShowId) {
-    listener.onEmptyCaseVisibilityChanged(false);
-    listener.onLoadVisibilityChanged(false);
+    listener.onLoadVisibilityChanged(true);
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
         listener.onFanArtLoaded(tvShow.getFanArt());
