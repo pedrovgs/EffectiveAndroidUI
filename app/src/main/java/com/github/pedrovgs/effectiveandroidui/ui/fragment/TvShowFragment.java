@@ -8,12 +8,14 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapterviewmodel.ChapterViewModelCollection;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapterviewmodel.ChapterViewModelRendererAdapter;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapterviewmodel.ChapterViewModelRendererAdapterFactory;
 import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.ChapterViewModel;
 import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.TvShowViewModel;
+import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.action.ActionCommand;
 import com.github.pedrovgs.effectiveandroidui.util.ToastUtils;
 import com.squareup.picasso.Picasso;
 import java.util.List;
@@ -97,6 +99,11 @@ import javax.inject.Inject;
 
   @Override public void onConnectionErrorMessageNotFound() {
     ToastUtils.showError(getString(R.string.connection_error_message), getActivity());
+  }
+
+  @OnClick(R.id.iv_fan_art) void onFanArtClicked() {
+    ActionCommand fanArtClickActionCommand = tvShowViewModel.getTvShowClickedCommand();
+    fanArtClickActionCommand.execute();
   }
 
   private void initializeListView() {

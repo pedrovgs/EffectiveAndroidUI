@@ -5,6 +5,8 @@ import com.github.pedrovgs.effectiveandroidui.domain.tvshow.Chapter;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.ChapterCollection;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowFragment;
+import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.action.ActionCommand;
+import com.github.pedrovgs.effectiveandroidui.ui.viewmodel.action.ShowTvShowOnBrowserActionCommand;
 import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
@@ -20,18 +22,22 @@ import javax.inject.Inject;
 public class TvShowViewModel {
 
   private final GetTvShowById getTvShowById;
+  private final ShowTvShowOnBrowserActionCommand showTvShowOnBrowserActionCommand;
 
   private TvShowFragment listener;
 
   @Inject
-  public TvShowViewModel(GetTvShowById getTvShowById) {
+  public TvShowViewModel(GetTvShowById getTvShowById,
+      ShowTvShowOnBrowserActionCommand showTvShowOnBrowserActionCommand) {
     this.getTvShowById = getTvShowById;
+    this.showTvShowOnBrowserActionCommand = showTvShowOnBrowserActionCommand;
   }
 
   public void loadTvShow(final String tvShowId) {
     listener.onLoadVisibilityChanged(true);
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
+        showTvShowOnBrowserActionCommand.setTvShowUrl(tvShow.getPoster());
         listener.onFanArtLoaded(tvShow.getFanArt());
         listener.onTvShowTitleLoaded(tvShow.getTitle());
         listener.onChaptersLoaded(getChaptersViewModel(tvShow.getChapters()));
@@ -52,6 +58,10 @@ public class TvShowViewModel {
         listener.onConnectionErrorMessageNotFound();
       }
     });
+  }
+
+  public ActionCommand getTvShowClickedCommand() {
+    return showTvShowOnBrowserActionCommand;
   }
 
   private List<ChapterViewModel> getChaptersViewModel(ChapterCollection chapterCollection) {
