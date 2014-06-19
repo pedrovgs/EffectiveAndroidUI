@@ -7,5 +7,5 @@
   <string name="seasons_counter">%1$d seasons</string>
   <string name="tv_show_not_found">TV Show not found exception ;)</string>
   <string name="tv_show_title">%1$s - SEASON 1</string>
-
+  <string name="tv_show_rate">Rate %1$d</string>
 </resources>
