@@ -47,7 +47,7 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_tv_show, container, false);
+    return inflater.inflate(R.layout.fragment_draggable_tv_show, container, false);
   }
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
