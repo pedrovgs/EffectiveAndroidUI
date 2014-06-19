@@ -2,9 +2,7 @@ package com.github.pedrovgs.effectiveandroidui.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import butterknife.InjectView;
@@ -44,11 +42,6 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.gv_tv_shows) GridView gv_tv_shows;
   @InjectView(R.id.v_empty_case) View v_empty_case;
-
-  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_tv_shows, container, false);
-  }
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
@@ -110,6 +103,10 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     if (listener != null) {
       listener.onTvShowClicked(tvShow);
     }
+  }
+
+  @Override protected int getFragmentLayout() {
+    return R.layout.fragment_tv_shows;
   }
 
   private void initializeGridView() {

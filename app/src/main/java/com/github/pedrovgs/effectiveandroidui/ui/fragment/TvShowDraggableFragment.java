@@ -3,7 +3,6 @@ package com.github.pedrovgs.effectiveandroidui.ui.fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -44,11 +43,6 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @InjectView(R.id.v_empty_case) View v_empty_case;
 
   private TextView headr_tv_show_chapters;
-
-  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_draggable_tv_show, container, false);
-  }
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
@@ -115,6 +109,10 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @Override public void showTvShow() {
     draggable_view.setVisibility(View.VISIBLE);
     draggable_view.maximize();
+  }
+
+  @Override protected int getFragmentLayout() {
+    return R.layout.fragment_draggable_tv_show;
   }
 
   private void initializeDraggableView() {
