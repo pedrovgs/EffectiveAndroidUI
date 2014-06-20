@@ -11,6 +11,7 @@ import butterknife.InjectView;
 import com.github.pedrovgs.DraggableView;
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.ChapterCollection;
+import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.presenter.TvShowPresenter;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterAdapteeCollection;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.chapter.ChapterRendererAdapter;
@@ -28,6 +29,8 @@ import javax.inject.Inject;
  * @author Pedro Vicente Gómez Sánchez
  */
 public class TvShowDraggableFragment extends BaseFragment implements TvShowPresenter.View {
+
+  private static final String EXTRA_TV_SHOW = "extra_tv_show";
 
   @Inject TvShowPresenter tvShowPresenter;
   @Inject ChapterRendererAdapterFactory chapterRendererAdapterFactory;
@@ -112,6 +115,29 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @Override public void showTvShow() {
     draggable_view.setVisibility(View.VISIBLE);
     draggable_view.maximize();
+  }
+
+  @Override public void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putSerializable(EXTRA_TV_SHOW, tvShowPresenter.getCurrentTvShow());
+  }
+
+  @Override public void onViewStateRestored(Bundle savedInstanceState) {
+    super.onViewStateRestored(savedInstanceState);
+    if (savedInstanceState != null) {
+      final TvShow tvShow = (TvShow) savedInstanceState.getSerializable(EXTRA_TV_SHOW);
+      updatePresenterWithSavedTvShow(tvShow);
+    }
+  }
+
+  private void updatePresenterWithSavedTvShow(final TvShow tvShow) {
+    if (tvShow != null) {
+      draggable_view.post(new Runnable() {
+        @Override public void run() {
+          tvShowPresenter.loadTvShow(tvShow);
+        }
+      });
+    }
   }
 
   @Override protected int getFragmentLayout() {

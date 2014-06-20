@@ -22,6 +22,7 @@ import javax.inject.Singleton;
 public class TvShowPresenter extends Presenter {
 
   private final GetTvShowById getTvShowById;
+  private TvShow currentTvShow;
 
   @Inject
   public TvShowPresenter(GetTvShowById getTvShowById) {
@@ -46,22 +47,25 @@ public class TvShowPresenter extends Presenter {
     this.view = view;
   }
 
+  public TvShow getCurrentTvShow() {
+    return currentTvShow;
+  }
+
+  public void loadTvShow(final TvShow tvShow) {
+    showTvShow(tvShow);
+  }
+
   public void loadTvShow(final String tvShowId) {
     view.hideEmptyCase();
     view.showLoading();
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
-        if (view.isReady()) {
-          view.showFanArt(tvShow.getFanArt());
-          view.showTvShowTitle(tvShow.getTitle().toUpperCase());
-          view.showChapters(tvShow.getChapters());
-          view.hideLoading();
-          view.showTvShow();
-        }
+        showTvShow(tvShow);
       }
 
       @Override public void onTvShowNotFound() {
         if (view.isReady()) {
+          currentTvShow = null;
           view.hideLoading();
           view.showEmptyCase();
           view.showTvShowNotFoundMessage();
@@ -70,12 +74,24 @@ public class TvShowPresenter extends Presenter {
 
       @Override public void onConnectionError() {
         if (view.isReady()) {
+          currentTvShow = null;
           view.hideLoading();
           view.showEmptyCase();
           view.showConnectionErrorMessage();
         }
       }
     });
+  }
+
+  private void showTvShow(TvShow tvShow) {
+    if (view.isReady()) {
+      currentTvShow = tvShow;
+      view.showFanArt(tvShow.getFanArt());
+      view.showTvShowTitle(tvShow.getTitle().toUpperCase());
+      view.showChapters(tvShow.getChapters());
+      view.hideLoading();
+      view.showTvShow();
+    }
   }
 
   /**

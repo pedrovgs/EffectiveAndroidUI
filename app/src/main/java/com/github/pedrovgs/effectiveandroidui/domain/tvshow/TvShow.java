@@ -1,5 +1,7 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
+import java.io.Serializable;
+
 /**
  * Contains all the information related with a TvShow.
  *
@@ -8,7 +10,8 @@ package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-public class TvShow {
+public class TvShow implements Serializable {
+  private static final long serialVersionUID = 8799656478674716638L;
 
   private final String title;
   private final String poster;
