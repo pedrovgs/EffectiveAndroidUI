@@ -28,6 +28,14 @@
       </intent-filter>
     </activity>
 
+    <!-- TvShowActivity -->
+
+
+    <activity
+        android:name=".ui.activity.TvShowActivity"
+        android:label="@string/app_name">
+    </activity>
+
   </application>
 
 </manifest>

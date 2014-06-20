@@ -18,6 +18,7 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
 
   @Inject GetTvShows getTvShows;
   @Inject GetTvShowById getTvShowsById;
+  @Inject Navigator navigator;
 
   private TvShowDraggableFragment tvShowDraggableFragment;
   private TvShowFragment tvShowFragment;
@@ -40,8 +41,31 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
   }
 
   @Override public void onTvShowClicked(final TvShow tvShow) {
-    showTvShowOnTvShowDraggableFragment(tvShow);
-    showTvShowOnTvShowFragment(tvShow);
+    if (canInteractWithFragments()) {
+      showTvShowOnTvShowDraggableFragment(tvShow);
+      showTvShowOnTvShowFragment(tvShow);
+    } else {
+      openTvShowActivity(tvShow.getTitle());
+    }
+  }
+
+  /**
+   * Method created to open TvShowActivity for Android 2.X versions. This method is going to use a
+   * Navigator object to open TvShowActivity. This method could be inside a presenter or view
+   * model,
+   * but to the sample we are going to use the Navigator object from this activity.
+   *
+   * Is possible to start an activity from a presenter or view model because we have a activity
+   * scope module to provide the current activity context.
+   *
+   * @param tvShowId used to open TvShowActivity.
+   */
+  private void openTvShowActivity(final String tvShowId) {
+    navigator.openTvShowActivity(tvShowId);
+  }
+
+  private boolean canInteractWithFragments() {
+    return tvShowDraggableFragment != null || tvShowFragment != null;
   }
 
   private void showTvShowOnTvShowDraggableFragment(TvShow tvShow) {
