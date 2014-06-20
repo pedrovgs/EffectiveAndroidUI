@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MergeRootFrame"
+    tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity">
+
+  <!-- TvShowCatalogFragment -->
+
+  <fragment
+      android:id="@+id/f_tv_show_catalog"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment"
+      tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"/>
+
+</FrameLayout>
