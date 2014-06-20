@@ -1,5 +1,6 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -11,7 +12,8 @@ import java.util.Set;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class ChapterCollection implements Iterable<Chapter> {
+public class ChapterCollection implements Iterable<Chapter>, Serializable {
+  private static final long serialVersionUID = 8799656478677673292L;
 
   private final LinkedHashSet<Chapter> chapters;
 

@@ -30,11 +30,15 @@
 
     <!-- TvShowActivity -->
 
+    <!-- Use configChanges="orientation" for Android 2.X and configChanges="orientation|screenSize"
+    for higher versions. Review your application there are other reasons why your activity can restart
+    the lifecycle. Review also setRetainInstanceState() in Fragment class if you have to reset your
+    activity lifecycle -->
 
     <activity
         android:name=".ui.activity.TvShowActivity"
-        android:label="@string/app_name">
-    </activity>
+        android:label="@string/app_name"
+        android:configChanges="orientation|screenSize"/>
 
   </application>
 

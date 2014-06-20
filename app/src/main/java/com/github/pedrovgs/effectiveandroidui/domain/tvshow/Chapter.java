@@ -1,11 +1,14 @@
 package com.github.pedrovgs.effectiveandroidui.domain.tvshow;
 
+import java.io.Serializable;
+
 /**
  * Contains all the information related with a TvShow chapter.
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-public class Chapter {
+public class Chapter implements Serializable {
+  private static final long serialVersionUID = 8799656473845972L;
 
   private final String title;
   private final String publishDate;
@@ -18,6 +21,7 @@ public class Chapter {
   /**
    * @return title associated to the EpisodeViewModel.
    */
+
   public String getTitle() {
     return title;
   }
