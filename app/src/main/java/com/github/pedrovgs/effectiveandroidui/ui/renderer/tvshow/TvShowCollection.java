@@ -2,8 +2,9 @@ package com.github.pedrovgs.effectiveandroidui.ui.renderer.tvshow;
 
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.pedrogomez.renderers.AdapteeCollection;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,16 +12,18 @@ import java.util.List;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-public class TvShowCollection implements AdapteeCollection<TvShow> {
+public class TvShowCollection implements AdapteeCollection<TvShow>, Serializable {
+  private static final long serialVersionUID = 8799677673292716638L;
 
-  private final List<TvShow> tvShows;
+  private final LinkedList<TvShow> tvShows;
 
   public TvShowCollection() {
-    this(new ArrayList<TvShow>());
+    this(new LinkedList<TvShow>());
   }
 
-  public TvShowCollection(List<TvShow> tvShows) {
-    this.tvShows = tvShows;
+  public TvShowCollection(Collection<TvShow> tvShows) {
+    this.tvShows = new LinkedList<TvShow>();
+    this.tvShows.addAll(tvShows);
   }
 
   @Override public int size() {
@@ -49,5 +52,9 @@ public class TvShowCollection implements AdapteeCollection<TvShow> {
 
   public void clear() {
     tvShows.clear();
+  }
+
+  public List<TvShow> getAsList() {
+    return (List<TvShow>) tvShows.clone();
   }
 }
