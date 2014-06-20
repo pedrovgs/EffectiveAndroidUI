@@ -51,23 +51,29 @@ public class TvShowPresenter extends Presenter {
     view.showLoading();
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
-        view.showFanArt(tvShow.getFanArt());
-        view.showTvShowTitle(tvShow.getTitle().toUpperCase());
-        view.showChapters(tvShow.getChapters());
-        view.hideLoading();
-        view.showTvShow();
+        if (view.isReady()) {
+          view.showFanArt(tvShow.getFanArt());
+          view.showTvShowTitle(tvShow.getTitle().toUpperCase());
+          view.showChapters(tvShow.getChapters());
+          view.hideLoading();
+          view.showTvShow();
+        }
       }
 
       @Override public void onTvShowNotFound() {
-        view.hideLoading();
-        view.showEmptyCase();
-        view.showTvShowNotFoundMessage();
+        if (view.isReady()) {
+          view.hideLoading();
+          view.showEmptyCase();
+          view.showTvShowNotFoundMessage();
+        }
       }
 
       @Override public void onConnectionError() {
-        view.hideLoading();
-        view.showEmptyCase();
-        view.showConnectionErrorMessage();
+        if (view.isReady()) {
+          view.hideLoading();
+          view.showEmptyCase();
+          view.showConnectionErrorMessage();
+        }
       }
     });
   }
@@ -96,5 +102,7 @@ public class TvShowPresenter extends Presenter {
     void showTvShow();
 
     void showTvShowTitle(String tvShowTitle);
+
+    boolean isReady();
   }
 }

@@ -68,17 +68,20 @@ public class TvShowCatalogPresenter extends Presenter {
   private void loadVideos() {
     getTvShowsInteractor.execute(new GetTvShows.Callback() {
       @Override public void onTvShowsLoaded(final Collection<TvShow> tvShows) {
-
-        view.renderVideos(tvShows);
-        view.hideLoading();
-        view.updateTitleWithCountOfVideow(tvShows.size());
+        if (view.isReady()) {
+          view.renderVideos(tvShows);
+          view.hideLoading();
+          view.updateTitleWithCountOfVideow(tvShows.size());
+        }
       }
 
       @Override public void onConnectionError() {
-        view.hideLoading();
-        view.showConnectionErrorMessage();
-        view.showEmptyCase();
-        view.showDefaultTitle();
+        if (view.isReady()) {
+          view.hideLoading();
+          view.showConnectionErrorMessage();
+          view.showEmptyCase();
+          view.showDefaultTitle();
+        }
       }
     });
   }
@@ -109,5 +112,7 @@ public class TvShowCatalogPresenter extends Presenter {
     void showTvShowInfo(TvShow tvShow);
 
     void showTvShow(TvShow tvShow);
+
+    boolean isReady();
   }
 }

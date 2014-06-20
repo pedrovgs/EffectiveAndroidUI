@@ -81,6 +81,10 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
     header_tv_show_chapters.setText(tvShowHeaderTitle);
   }
 
+  @Override public boolean isReady() {
+    return isAdded();
+  }
+
   @Override public void showChapters(ChapterCollection chapters) {
     chapterAdapteeCollection.clear();
     chapterAdapteeCollection.addAll(chapters.getChapters());

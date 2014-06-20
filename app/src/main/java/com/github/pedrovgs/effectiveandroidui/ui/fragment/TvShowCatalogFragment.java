@@ -105,6 +105,10 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     }
   }
 
+  @Override public boolean isReady() {
+    return isAdded();
+  }
+
   @Override protected int getFragmentLayout() {
     return R.layout.fragment_tv_shows;
   }

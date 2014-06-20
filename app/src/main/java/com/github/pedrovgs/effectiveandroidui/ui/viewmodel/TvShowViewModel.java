@@ -25,6 +25,7 @@ public class TvShowViewModel {
   private final ShowTvShowOnBrowserActionCommand showTvShowOnBrowserActionCommand;
 
   private TvShowFragment listener;
+  private boolean isReady;
 
   @Inject
   public TvShowViewModel(GetTvShowById getTvShowById,
@@ -38,24 +39,30 @@ public class TvShowViewModel {
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
         showTvShowOnBrowserActionCommand.setTvShowUrl(tvShow.getPoster());
-        listener.onFanArtLoaded(tvShow.getFanArt());
-        listener.onTvShowTitleLoaded(tvShow.getTitle());
-        listener.onChaptersLoaded(getChaptersViewModel(tvShow.getChapters()));
-        listener.onVisibilityChanged(true);
-        listener.onLoadVisibilityChanged(false);
-        listener.onEmptyCaseVisibilityChanged(false);
+        if (isReady) {
+          listener.onFanArtLoaded(tvShow.getFanArt());
+          listener.onTvShowTitleLoaded(tvShow.getTitle());
+          listener.onChaptersLoaded(getChaptersViewModel(tvShow.getChapters()));
+          listener.onVisibilityChanged(true);
+          listener.onLoadVisibilityChanged(false);
+          listener.onEmptyCaseVisibilityChanged(false);
+        }
       }
 
       @Override public void onTvShowNotFound() {
-        listener.onLoadVisibilityChanged(false);
-        listener.onEmptyCaseVisibilityChanged(true);
-        listener.onTvShowMessageNotFound();
+        if (isReady) {
+          listener.onLoadVisibilityChanged(false);
+          listener.onEmptyCaseVisibilityChanged(true);
+          listener.onTvShowMessageNotFound();
+        }
       }
 
       @Override public void onConnectionError() {
-        listener.onLoadVisibilityChanged(false);
-        listener.onEmptyCaseVisibilityChanged(true);
-        listener.onConnectionErrorMessageNotFound();
+        if (isReady) {
+          listener.onLoadVisibilityChanged(false);
+          listener.onEmptyCaseVisibilityChanged(true);
+          listener.onConnectionErrorMessageNotFound();
+        }
       }
     });
   }
@@ -78,6 +85,10 @@ public class TvShowViewModel {
 
   public TvShowFragment getListener() {
     return listener;
+  }
+
+  public void setReady(boolean isReady) {
+    this.isReady = isReady;
   }
 
   public interface Listener {
