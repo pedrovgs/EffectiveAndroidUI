@@ -51,6 +51,10 @@ public class TvShowPresenter extends Presenter {
     return currentTvShow;
   }
 
+  public void tvShowClosed() {
+    currentTvShow = null;
+  }
+
   public void loadTvShow(final TvShow tvShow) {
     showTvShow(tvShow);
   }
@@ -73,7 +77,7 @@ public class TvShowPresenter extends Presenter {
       }
 
       @Override public void onConnectionError() {
-        if (view.isReady()) {
+        if (view.isReady() && !view.isAlreadyLoaded()) {
           currentTvShow = null;
           view.hideLoading();
           view.showEmptyCase();
@@ -120,5 +124,7 @@ public class TvShowPresenter extends Presenter {
     void showTvShowTitle(String tvShowTitle);
 
     boolean isReady();
+
+    boolean isAlreadyLoaded();
   }
 }
