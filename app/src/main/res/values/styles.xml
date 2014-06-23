@@ -1,8 +1,84 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
-    </style>
+
+  <!-- Application theme -->
+
+  <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <item name="android:windowBackground">@color/main_color</item>
+  </style>
+
+  <style name="AppTheme.RootView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+  </style>
+
+  <style name="AppTheme.Image">
+    <item name="android:scaleType">centerCrop</item>
+    <item name="android:background">@color/main_color</item>
+  </style>
+
+  <style name="AppTheme.Title">
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/fourth_color</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+  <style name="AppTheme.Subtitle">
+    <item name="android:textColor">@color/third_color</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+
+  <style name="AppTheme.GridView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:numColumns">@integer/tv_shows_grid_view_num_colums</item>
+    <item name="android:verticalSpacing">@dimen/main_margin</item>
+    <item name="android:horizontalSpacing">@dimen/main_margin</item>
+    <item name="android:layout_marginLeft">@dimen/main_margin</item>
+    <item name="android:layout_marginRight">@dimen/main_margin</item>
+  </style>
+
+  <style name="AppTheme.ProgressBar">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_centerVertical">true</item>
+    <item name="android:layout_centerHorizontal">true</item>
+  </style>
+
+  <style name="AppTheme.EmptyCase">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_centerVertical">true</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:visibility">gone</item>
+    <item name="android:src">@drawable/empty_case</item>
+  </style>
+
+  <style name="AppTheme.TvShow">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:background">@color/white</item>
+  </style>
+
+  <style name="AppTheme.Image.TvShow">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">@dimen/poster_height</item>
+  </style>
+
+  <style name="AppTheme.Title.TvShow">
+    <item name="android:ellipsize">end</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:layout_marginLeft">@dimen/secondary_margin</item>
+  </style>
+
+  <style name="AppTheme.Subtitle.TvShow">
+    <item name="android:ellipsize">end</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:layout_marginLeft">@dimen/secondary_margin</item>
+    <item name="android:paddingBottom">@dimen/main_margin</item>
+  </style>
+
 
 </resources>
