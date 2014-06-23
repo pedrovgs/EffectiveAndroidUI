@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 
   <!-- Application theme -->
 
@@ -10,6 +10,12 @@
   <style name="AppTheme.RootView">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">match_parent</item>
+  </style>
+
+  <style name="AppTheme.RootViewVertical">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:orientation">vertical</item>
   </style>
 
   <style name="AppTheme.Image">
@@ -123,6 +129,7 @@
     <item name="android:layout_marginLeft">@dimen/main_margin</item>
     <item name="android:textSize">@dimen/title_size</item>
     <item name="android:textColor">@color/fourth_color</item>
+    <item name="android:singleLine">true</item>
   </style>
 
   <style name="AppTheme.Chapter.PublishDate">
