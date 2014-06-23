@@ -4,6 +4,8 @@
   <color name="white">#FFFFFFFF</color>
   <color name="main_color">#FFDDDDDD</color>
   <color name="secondary_color">#FFFFFFFF</color>
-  <color name="third_color">#508B999B</color>
+  <color name="third_color">#FF727A7C</color>
   <color name="fourth_color">#FF57585A</color>
+  <color name="fifth_color">#FFF0F0F0</color>
+  <color name="sixth_color">#FF8B999B</color>
 </resources>
