@@ -1,6 +1,5 @@
 package com.github.pedrovgs.effectiveandroidui.ui.presenter;
 
-import android.util.Log;
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.tvshow.TvShowCollection;
@@ -78,6 +77,9 @@ public class TvShowCatalogPresenter extends Presenter {
    * message and the empty case. In both cases, the progress bar visibility will be hidden.
    */
   private void loadTvShows() {
+    if (view.isReady()) {
+      view.showLoading();
+    }
     getTvShowsInteractor.execute(new GetTvShows.Callback() {
       @Override public void onTvShowsLoaded(final Collection<TvShow> tvShows) {
         currentTvShowCollection = new TvShowCollection(tvShows);
@@ -115,6 +117,8 @@ public class TvShowCatalogPresenter extends Presenter {
   public interface View {
 
     void hideLoading();
+
+    void showLoading();
 
     void renderVideos(final Collection<TvShow> tvShows);
 

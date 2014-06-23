@@ -93,6 +93,10 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     pb_loading.setVisibility(View.GONE);
   }
 
+  @Override public void showLoading() {
+    pb_loading.setVisibility(View.VISIBLE);
+  }
+
   @Override public void renderVideos(final Collection<TvShow> tvShows) {
     this.tvShows.clear();
     this.tvShows.addAll(tvShows);

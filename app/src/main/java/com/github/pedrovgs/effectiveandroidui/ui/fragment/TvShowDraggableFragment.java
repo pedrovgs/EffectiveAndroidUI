@@ -43,7 +43,6 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   @InjectView(R.id.iv_fan_art) ImageView iv_fan_art;
   @InjectView(R.id.lv_chapters) ListView lv_chapters;
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
-  @InjectView(R.id.v_empty_case) View v_empty_case;
 
   private TextView header_tv_show_chapters;
 
@@ -65,10 +64,6 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   public void showTvShow(final String tvShowId) {
     tvShowPresenter.loadTvShow(tvShowId);
-  }
-
-  @Override public void hideEmptyCase() {
-    v_empty_case.setVisibility(View.GONE);
   }
 
   @Override public void showLoading() {
@@ -101,10 +96,6 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   @Override public void hideLoading() {
     pb_loading.setVisibility(View.GONE);
-  }
-
-  @Override public void showEmptyCase() {
-    v_empty_case.setVisibility(View.VISIBLE);
   }
 
   @Override public void showTvShowNotFoundMessage() {

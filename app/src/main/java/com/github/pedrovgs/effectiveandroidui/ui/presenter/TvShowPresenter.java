@@ -60,7 +60,6 @@ public class TvShowPresenter extends Presenter {
   }
 
   public void loadTvShow(final String tvShowId) {
-    view.hideEmptyCase();
     view.showLoading();
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
@@ -71,7 +70,6 @@ public class TvShowPresenter extends Presenter {
         if (view.isReady()) {
           currentTvShow = null;
           view.hideLoading();
-          view.showEmptyCase();
           view.showTvShowNotFoundMessage();
         }
       }
@@ -80,7 +78,6 @@ public class TvShowPresenter extends Presenter {
         if (view.isReady() && !view.isAlreadyLoaded()) {
           currentTvShow = null;
           view.hideLoading();
-          view.showEmptyCase();
           view.showConnectionErrorMessage();
         }
       }
@@ -103,8 +100,6 @@ public class TvShowPresenter extends Presenter {
    */
   public interface View {
 
-    void hideEmptyCase();
-
     void showLoading();
 
     void showFanArt(final String tvShowFanArtUrl);
@@ -112,8 +107,6 @@ public class TvShowPresenter extends Presenter {
     void showChapters(final ChapterCollection episodes);
 
     void hideLoading();
-
-    void showEmptyCase();
 
     void showTvShowNotFoundMessage();
 
