@@ -6,4 +6,8 @@
   <dimen name="title_size">20sp</dimen>
   <dimen name="divider_height">1dip</dimen>
   <dimen name="poster_height">200dip</dimen>
+  <dimen name="fan_art_height">185dip</dimen>
+  <item name="x_draggable_scale_factor" format="float" type="dimen">2</item>
+  <item name="y_draggable_scale_factor" format="float" type="dimen">2</item>
+
 </resources>
