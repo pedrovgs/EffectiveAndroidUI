@@ -5,28 +5,20 @@
     android:layout_height="match_parent">
 
   <LinearLayout
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:visibility="visible"
-      android:orientation="vertical">
+      style="@style/AppTheme.RootViewVertical">
 
     <!-- TvShow Fan Art -->
 
     <ImageView
         android:id="@+id/iv_fan_art"
-        android:layout_width="fill_parent"
-        android:layout_height="200dip"
-        android:layout_alignParentTop="true"
-        android:visibility="gone"/>
+        style="@style/AppTheme.Image.TvShowFranArt"/>
 
     <!-- ListView Chapters -->
 
     <ListView
         android:id="@+id/lv_chapters"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#000000"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        style="@style/AppTheme.ListView"/>
 
   </LinearLayout>
 
@@ -34,16 +26,13 @@
 
   <ProgressBar
       android:id="@+id/pb_loading"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:visibility="gone"/>
+      style="@style/AppTheme.ProgressBar"/>
 
   <!-- EmptyCase -->
 
-  <View
+  <ImageView
       android:id="@+id/v_empty_case"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"/>
+      style="@style/AppTheme.EmptyCase"/>
 
 
 </FrameLayout>
