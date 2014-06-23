@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/AppTheme.RootView">
 
   <!-- ProgressBar -->
 
   <ProgressBar
       android:id="@+id/pb_loading"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:visibility="gone"/>
-
-  <!-- EmptyCase -->
-
-  <View
-      android:id="@+id/v_empty_case"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:visibility="gone"/>
+      style="@style/AppTheme.ProgressBar"/>
 
   <!-- DraggableView -->
 
@@ -27,32 +16,27 @@
   <com.github.pedrovgs.DraggableView
       xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
       android:id="@+id/draggable_view"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:visibility="gone"
       draggable_view:top_view_id="@+id/iv_fan_art"
       draggable_view:bottom_view_id="@+id/lv_chapters"
-      draggable_view:top_view_x_scale_factor="2"
-      draggable_view:top_view_y_scale_factor="2"
-      draggable_view:top_view_margin_right="10dip"
-      draggable_view:top_view_margin_bottom="10dip">
+      draggable_view:top_view_x_scale_factor="@dimen/x_draggable_scale_factor"
+      draggable_view:top_view_y_scale_factor="@dimen/y_draggable_scale_factor"
+      draggable_view:top_view_margin_right="@dimen/main_margin"
+      draggable_view:top_view_margin_bottom="@dimen/main_margin"
+      style="@style/AppTheme.Chapter.DraggableView">
 
     <!-- ListView Chapters -->
 
     <ListView
         android:id="@+id/lv_chapters"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
         android:layout_below="@+id/iv_fan_art"
-        android:background="#000000"/>
+        style="@style/AppTheme.ListView"/>
 
     <!-- TvShow Fan Art -->
 
     <ImageView
         android:id="@+id/iv_fan_art"
-        android:layout_width="fill_parent"
-        android:layout_height="200dip"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        style="@style/AppTheme.Image.TvShowFranArt"/>
 
   </com.github.pedrovgs.DraggableView>
 
