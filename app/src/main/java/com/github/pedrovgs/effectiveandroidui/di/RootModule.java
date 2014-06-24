@@ -5,10 +5,8 @@ import android.view.LayoutInflater;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 import com.github.pedrovgs.effectiveandroidui.domain.TvShowsModule;
 import com.github.pedrovgs.effectiveandroidui.executor.ExecutorModule;
-import com.github.pedrovgs.effectiveandroidui.ui.theme.ThemeController;
 import dagger.Module;
 import dagger.Provides;
-import javax.inject.Singleton;
 
 /**
  * Dagger module created to work as junction of every module with an application scope.
@@ -37,9 +35,5 @@ public final class RootModule {
 
   @Provides LayoutInflater provideLayoutInflater() {
     return LayoutInflater.from(context);
-  }
-
-  @Provides @Singleton ThemeController provideThemeController() {
-    return new ThemeController();
   }
 }
