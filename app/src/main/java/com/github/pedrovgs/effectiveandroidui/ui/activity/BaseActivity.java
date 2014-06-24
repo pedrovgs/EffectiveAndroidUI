@@ -1,15 +1,12 @@
 package com.github.pedrovgs.effectiveandroidui.ui.activity;
 
 import android.os.Bundle;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
 import butterknife.ButterKnife;
 import com.github.pedrovgs.effectiveandroidui.TvShowsApplication;
 import com.github.pedrovgs.effectiveandroidui.di.ActivityModule;
-import com.github.pedrovgs.effectiveandroidui.ui.theme.ThemeController;
 import dagger.ObjectGraph;
 import java.util.List;
-import javax.inject.Inject;
 
 /**
  * Base activity created to be extended by every activity in this application. This class provides
@@ -22,15 +19,10 @@ public abstract class BaseActivity extends ActionBarActivity {
 
   private ObjectGraph activityScopeGraph;
 
-  @Inject ThemeController themeController;
-
-  private GestureDetectorCompat gestureDetectorCompat;
-
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     injectDependencies();
     injectViews();
-    initializeTheme();
   }
 
   /**
@@ -48,13 +40,6 @@ public abstract class BaseActivity extends ActionBarActivity {
    * @return modules with new dependencies to provide.
    */
   protected abstract List<Object> getModules();
-
-  /**
-   * Set the current application theme to the activity after the setContentView() call.
-   */
-  private void initializeTheme() {
-    setTheme(themeController.getCurrentTheme());
-  }
 
   /**
    * Modify Dagger ObjectGraph to add new dependencies using a plus operation and inject the
