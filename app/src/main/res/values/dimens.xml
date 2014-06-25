@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
   <dimen name="main_margin">10dip</dimen>
   <dimen name="secondary_margin">5dip</dimen>
   <dimen name="numeric_title_size">38sp</dimen>

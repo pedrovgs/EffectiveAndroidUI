@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="AppTheme.Chapter">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:background">@color/fifth_color</item>
+  </style>
+
+  <style name="AppTheme.Chapter.Number">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">@color/sixth_color</item>
+    <item name="android:textSize">@dimen/numeric_title_size</item>
+    <item name="android:layout_marginLeft">@dimen/secondary_margin</item>
+  </style>
+
+  <style name="AppTheme.Chapter.Title">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">@dimen/secondary_margin</item>
+    <item name="android:layout_marginLeft">@dimen/main_margin</item>
+    <item name="android:textSize">@dimen/title_size</item>
+    <item name="android:textColor">@color/fourth_color</item>
+    <item name="android:singleLine">true</item>
+  </style>
+
+  <style name="AppTheme.Chapter.PublishDate">
+    <item name="android:layout_marginLeft">@dimen/main_margin</item>
+    <item name="android:paddingBottom">@dimen/secondary_margin</item>
+    <item name="android:textColor">@color/fourth_color</item>
+    <item name="android:fontFamily">sans-serif-light</item>
+  </style>
+
+  <style name="AppTheme.Chapter.DraggableView">
+    <item name="android:visibility">gone</item>
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">fill_parent</item>
+  </style>
+
+</resources>
