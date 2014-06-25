@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
   <LinearLayout
-      style="@style/AppTheme.RootViewVertical">
+      style="@style/AppTheme.RootView.Vertical">
 
     <!-- TvShow Fan Art -->
 

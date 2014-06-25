@@ -12,9 +12,7 @@
     <item name="android:layout_height">match_parent</item>
   </style>
 
-  <style name="AppTheme.RootViewVertical">
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">match_parent</item>
+  <style name="AppTheme.RootView.Vertical">
     <item name="android:orientation">vertical</item>
   </style>
 
@@ -42,8 +40,6 @@
     <item name="android:numColumns">@integer/tv_shows_grid_view_num_colums</item>
     <item name="android:verticalSpacing">@dimen/main_margin</item>
     <item name="android:horizontalSpacing">@dimen/main_margin</item>
-    <item name="android:layout_marginLeft">@dimen/main_margin</item>
-    <item name="android:layout_marginRight">@dimen/main_margin</item>
   </style>
 
   <style name="AppTheme.ListView">
