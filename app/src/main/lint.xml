@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+
+  <!-- Ignored issues -->
+
+  <issue id="InvalidPackage" severity="ignore"/>
+  <issue id="ContentDescription" severity="ignore"/>
+  <issue id="DefaultLocale" severity="ignore"/>
+  <issue id="IconLocation" severity="ignore"/>
+
+  <issue id="NewApi">
+    <ignore path="src/main/res/values/styles-chapter.xml"/>
+  </issue>
+
+  <issue id="InconsistentLayout">
+    <ignore path="src/main/res/layout-v11/activity_main.xml"/>
+    <ignore path="src/main/res/layout-sw600dp-land/activity_main.xml"/>
+  </issue>
+
+</lint>

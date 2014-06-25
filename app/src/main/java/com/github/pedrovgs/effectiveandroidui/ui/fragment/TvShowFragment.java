@@ -78,7 +78,7 @@ import javax.inject.Inject;
   }
 
   @Override public void onFanArtLoaded(final String fanArt) {
-    Picasso.with(getActivity()).load(fanArt).placeholder(R.drawable.empty_case).into(iv_fan_art);
+    Picasso.with(getActivity()).load(fanArt).placeholder(R.color.main_color).into(iv_fan_art);
   }
 
   @Override public void onTvShowTitleLoaded(final String tvShowTitle) {

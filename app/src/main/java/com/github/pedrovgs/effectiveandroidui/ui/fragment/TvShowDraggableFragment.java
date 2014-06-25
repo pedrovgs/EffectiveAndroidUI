@@ -80,7 +80,10 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   @Override public void showFanArt(final String tvShowFanArtUrl) {
     iv_fan_art.setVisibility(View.VISIBLE);
-    Picasso.with(getActivity()).load(tvShowFanArtUrl).into(iv_fan_art);
+    Picasso.with(getActivity())
+        .load(tvShowFanArtUrl)
+        .placeholder(R.color.main_color)
+        .into(iv_fan_art);
   }
 
   @Override public void showTvShowTitle(final String tvShowTitle) {

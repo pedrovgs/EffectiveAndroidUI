@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
         (TvShowDraggableFragment) getSupportFragmentManager().findFragmentById(
             R.id.f_tv_show_draggable);
     tvShowFragment = (TvShowFragment) getSupportFragmentManager().findFragmentById(R.id.f_tv_show);
-    if(tvShowFragment!=null){
+    if (tvShowFragment != null && tvShowDraggableFragment != null) {
       tvShowDraggableFragment.disableSaveInstanceState();
     }
   }
