@@ -24,6 +24,23 @@ public class TvShowsApplication extends Application {
     initializeDependencyInjector();
   }
 
+  /*
+   * We could use this code to enable or disable night mode or eve use a auto night mode.
+   * But to use this feature we have to enable car mode and the UX is not the expected :S
+   * If you enable car mode the application is going to show a persistent notification!
+   *
+   * Use this method inside the onCreate and create a new "values-night" directory with some
+   * color changes to show how it works.
+   *
+   */
+  private void initializeUiManager() {
+    /*
+    UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+    uiModeManager.enableCarMode(0);
+    uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_AUTO);
+    */
+  }
+
   /**
    * Inject every dependency declared in the object with the @Inject annotation if the dependency
    * has been already declared in a module and already initialized by Dagger.
