@@ -39,6 +39,8 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   private ChapterRendererAdapter adapter;
   private ChapterAdapteeCollection chapterAdapteeCollection = new ChapterAdapteeCollection();
 
+  private boolean useSaveInstanceState = true;
+
   @InjectView(R.id.draggable_view) DraggableView draggable_view;
   @InjectView(R.id.iv_fan_art) ImageView iv_fan_art;
   @InjectView(R.id.lv_chapters) ListView lv_chapters;
@@ -53,6 +55,10 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
     initializeListView();
   }
 
+  public void disableSaveInstanceState() {
+    useSaveInstanceState = false;
+  }
+
   private void initializeListView() {
     header_tv_show_chapters = (TextView) LayoutInflater.from(getActivity())
         .inflate(R.layout.header_tv_show_chapters, null);
@@ -63,7 +69,9 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
   }
 
   public void showTvShow(final String tvShowId) {
-    tvShowPresenter.loadTvShow(tvShowId);
+    if (isAdded()) {
+      tvShowPresenter.loadTvShow(tvShowId);
+    }
   }
 
   @Override public void showLoading() {
@@ -115,7 +123,9 @@ public class TvShowDraggableFragment extends BaseFragment implements TvShowPrese
 
   @Override public void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
-    outState.putSerializable(EXTRA_TV_SHOW, tvShowPresenter.getCurrentTvShow());
+    if (useSaveInstanceState) {
+      outState.putSerializable(EXTRA_TV_SHOW, tvShowPresenter.getCurrentTvShow());
+    }
   }
 
   @Override public void onViewStateRestored(Bundle savedInstanceState) {

@@ -68,15 +68,17 @@ import javax.inject.Inject;
   }
 
   public void showTvShow(final String tvShowId) {
-    tvShowViewModel.loadTvShow(tvShowId);
+    if (isAdded()) {
+      tvShowViewModel.loadTvShow(tvShowId);
+    }
   }
 
   @Override protected int getFragmentLayout() {
     return R.layout.fragment_tv_show;
   }
 
-  @Override public void onFanArtLoaded(String fanArt) {
-    Picasso.with(getActivity()).load(fanArt).into(iv_fan_art);
+  @Override public void onFanArtLoaded(final String fanArt) {
+    Picasso.with(getActivity()).load(fanArt).placeholder(R.drawable.empty_case).into(iv_fan_art);
   }
 
   @Override public void onTvShowTitleLoaded(final String tvShowTitle) {
@@ -129,6 +131,7 @@ import javax.inject.Inject;
 
   private void bindViewModel() {
     tvShowViewModel.setListener(this);
+    tvShowViewModel.initialize();
   }
 
   private int getVisibility(final boolean visible) {
