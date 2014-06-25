@@ -12,7 +12,7 @@
       android:id="@+id/f_tv_show_catalog"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_weight="2"
+      android:layout_weight="1"
       class="com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment"
       tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity"/>
 
