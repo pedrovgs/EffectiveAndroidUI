@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
  * Base activity created to be extended by every activity in this application. This class provides
- * dependency injection configuration, butterknife Android library configuration and some methods
+ * dependency injection configuration, ButterKnife Android library configuration and some methods
  * common to every activity.
  *
  * @author Pedro Vicente Gómez Sánchez
@@ -41,7 +41,8 @@ public abstract class BaseActivity extends ActionBarActivity {
   }
 
   /**
-   * Method used to resolve dependencies provided by Dagger modules.
+   * Method used to resolve dependencies provided by Dagger modules. Inject an object to provide
+   * every @Inject annotation contained.
    *
    * @param object to inject.
    */
@@ -57,9 +58,11 @@ public abstract class BaseActivity extends ActionBarActivity {
   protected abstract List<Object> getModules();
 
   /**
-   * Modify Dagger ObjectGraph to add new dependencies using a plus operation and inject the
-   * declared one in the activity. This new dependencies will be removed from the gobal graph once
-   * the activity lifecycle finish.
+   * Create a new Dagger ObjectGraph to add new dependencies using a plus operation and inject the
+   * declared one in the activity. This new graph will be destroyed once the activity lifecycle
+   * finish.
+   *
+   * This is the key of how to use Activity scope dependency injection.
    */
   private void injectDependencies() {
     TvShowsApplication tvShowsApplication = (TvShowsApplication) getApplication();

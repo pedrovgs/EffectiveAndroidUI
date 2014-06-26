@@ -26,7 +26,7 @@ import com.github.pedrovgs.effectiveandroidui.ui.activity.BaseActivity;
 
 /**
  * Base fragment created to be extended by every fragment in this application. This class provides
- * dependency injection configuration, butterknife Android library configuration and some methods
+ * dependency injection configuration, ButterKnife Android library configuration and some methods
  * common to every fragment.
  *
  * @author Pedro Vicente Gómez Sánchez
@@ -48,10 +48,15 @@ public abstract class BaseFragment extends Fragment {
     injectViews(view);
   }
 
+  /**
+   * Every fragment has to inflate a layout in the onCreateView method. We have added this method to
+   * avoid duplicate all the inflate code in every fragment. You only have to return the layout to
+   * inflate in this method when extends BaseFragment.
+   */
   protected abstract int getFragmentLayout();
 
   /**
-   * Replace every field annotated with @Inject annotation with the provided dependency specified
+   * Replace every field annotated using @Inject annotation with the provided dependency specified
    * inside a Dagger module value.
    */
   private void injectDependencies() {

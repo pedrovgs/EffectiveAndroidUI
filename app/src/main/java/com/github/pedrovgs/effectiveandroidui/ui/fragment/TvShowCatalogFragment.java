@@ -38,9 +38,10 @@ import javax.inject.Inject;
  * logic. Review TvShowCatalogPresenter to get more info about the implementation.
  *
  * This fragment is going to notify to the activity every event that has to go out of this
- * fragment.
- * TvShowCatalogFragmentListener is the interface declared by this fragment and implemented by the
- * activity that contains this fragment.
+ * fragment. TvShowCatalogFragmentListener is the interface declared by this fragment and
+ * implemented by the activity that contains this fragment. This is a common implementation used to
+ * notify user actions to the fragment owner. Other approach could be based on a Bus event
+ * implementation.
  *
  * @author Pedro Vicente Gómez Sánchez
  */
@@ -84,6 +85,12 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     tvShowCatalogPresenter.pause();
   }
 
+  /**
+   * We want to keep the catalog loaded in this fragment even if the user rotates the device. We
+   * are
+   * using different configurations for landscape and portrait and we have to use this approach
+   * instead of onConfigurationChanges.
+   */
   @Override public void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
     outState.putSerializable(EXTRA_TV_SHOW_CATALOG, tvShowCatalogPresenter.getCurrentTvShows());
@@ -95,12 +102,6 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
       final TvShowCollection tvShowCollection =
           (TvShowCollection) savedInstanceState.getSerializable(EXTRA_TV_SHOW_CATALOG);
       updatePresenterWithSavedTvShow(tvShowCollection);
-    }
-  }
-
-  private void updatePresenterWithSavedTvShow(TvShowCollection tvShowCollection) {
-    if (tvShowCollection != null) {
-      tvShowCatalogPresenter.loadCatalog(tvShowCollection);
     }
   }
 
@@ -161,6 +162,12 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
   private void initializeGridView() {
     adapter = tvShowRendererAdapterFactory.getTvShowRendererAdapter(tvShows);
     gv_tv_shows.setAdapter(adapter);
+  }
+
+  private void updatePresenterWithSavedTvShow(TvShowCollection tvShowCollection) {
+    if (tvShowCollection != null) {
+      tvShowCatalogPresenter.loadCatalog(tvShowCollection);
+    }
   }
 
   private void refreshAdapter() {

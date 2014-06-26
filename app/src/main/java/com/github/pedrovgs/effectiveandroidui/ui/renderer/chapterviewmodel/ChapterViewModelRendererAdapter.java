@@ -26,6 +26,9 @@ import com.pedrogomez.renderers.RendererBuilder;
  * RendererAdapter extension created to provide position information to each
  * Renderer<ChapterViewModel>
  *
+ * If you want to lear more about how to use Renderers take a look to this project:
+ * https://github.com/pedrovgs/Renderers.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 public class ChapterViewModelRendererAdapter extends RendererAdapter<ChapterViewModel> {

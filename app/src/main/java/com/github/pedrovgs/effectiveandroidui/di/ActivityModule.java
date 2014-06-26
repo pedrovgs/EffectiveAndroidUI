@@ -21,6 +21,10 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Dagger module created to provide some common activity scope depdendencies as @ActivityContext. This
+ * module is going to be added to the graph generated for every activity while the activity creation
+ * lifecycle.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 @Module(library = true)

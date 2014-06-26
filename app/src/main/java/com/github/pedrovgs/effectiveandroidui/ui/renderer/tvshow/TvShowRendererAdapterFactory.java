@@ -23,6 +23,9 @@ import javax.inject.Inject;
 /**
  * Factory created to provide RendererAdapter<TvShow> implementations.
  *
+ * If you want to lear more about how to use Renderers take a look to this project:
+ * https://github.com/pedrovgs/Renderers.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 public class TvShowRendererAdapterFactory {
