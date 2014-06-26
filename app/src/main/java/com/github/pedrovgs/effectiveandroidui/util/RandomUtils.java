@@ -25,6 +25,7 @@ import java.util.Random;
 public class RandomUtils {
 
   private static final Random RANDOM = new Random();
+  public static final int CENT_PERCENT = 101;
 
   private RandomUtils() {
     //Empty
@@ -37,7 +38,7 @@ public class RandomUtils {
    * @return true fifty percent of the times it's executed if the percentage parameter is 50.
    */
   public static boolean percent(final int percentage) {
-    return (RANDOM.nextInt(100) < percentage);
+    return (RANDOM.nextInt(CENT_PERCENT) < percentage);
   }
 
   /**
