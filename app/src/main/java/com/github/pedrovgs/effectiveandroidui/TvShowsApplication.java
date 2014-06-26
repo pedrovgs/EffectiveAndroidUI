@@ -50,9 +50,9 @@ public class TvShowsApplication extends Application {
    */
   private void initializeUiManager() {
     /*
-    UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-    uiModeManager.enableCarMode(0);
-    uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_AUTO);
+     * UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+     * uiModeManager.enableCarMode(0);
+     * uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_AUTO);
     */
   }
 
