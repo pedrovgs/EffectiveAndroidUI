@@ -83,7 +83,7 @@ public class ChapterViewModel {
 
   public interface Listener {
 
-    public void onRateChanged(final int rate);
+    void onRateChanged(final int rate);
   }
 
   /**
