@@ -69,6 +69,11 @@ public class TvShowCatalogPresenter extends Presenter {
     //Empty
   }
 
+  /**
+   * Used to force a TvShowCollection load in the presenter. This method is used by
+   * TvShowCatalogFragment when the fragment lifecycle is restored and there are already loaded tv
+   * shows.
+   */
   public void loadCatalog(final TvShowCollection tvShowCollection) {
     currentTvShowCollection = tvShowCollection;
     showTvShows(tvShowCollection.getAsList());
@@ -102,14 +107,18 @@ public class TvShowCatalogPresenter extends Presenter {
       }
 
       @Override public void onConnectionError() {
-        if (view.isReady() && !view.isAlreadyLoaded()) {
-          view.hideLoading();
-          view.showConnectionErrorMessage();
-          view.showEmptyCase();
-          view.showDefaultTitle();
-        }
+        notifyConnectionError();
       }
     });
+  }
+
+  private void notifyConnectionError() {
+    if (view.isReady() && !view.isAlreadyLoaded()) {
+      view.hideLoading();
+      view.showConnectionErrorMessage();
+      view.showEmptyCase();
+      view.showDefaultTitle();
+    }
   }
 
   private void showTvShows(Collection<TvShow> tvShows) {
@@ -127,7 +136,7 @@ public class TvShowCatalogPresenter extends Presenter {
   }
 
   /**
-   * View interface created to abstract the view implementation used in this sample.
+   * View interface created to abstract the view implementation used in this presenter.
    */
   public interface View {
 

@@ -29,6 +29,8 @@ import java.util.List;
  * Activity created to show a TvShow using TvShowFragment. This activity is going to be launched
  * only in Android 2.X versions.
  *
+ * This activity has to be launched using a tv show id as extra or will throw an exception.
+ *
  * This Activity will implement two good practices:
  *
  * - Implement a method to create the intent needed to start this activity.
@@ -43,13 +45,16 @@ public class TvShowActivity extends BaseActivity {
 
   private String tvShowId;
 
+  /**
+   * Generates the intent neede by the client code to launch this activity. This method is a sample
+   * of who to avoid duplicate this code by all the application.
+   */
   public static Intent getLaunchIntent(final Context context, final String tvShowId) {
     if (StringUtils.isNullOrEmpty(tvShowId)) {
       throwIllegalArgumentException();
     }
     Intent intent = new Intent(context, TvShowActivity.class);
-    intent.putExtra(EXTRA_TV_SHOW_ID, tvShowId);
-    return intent;
+    return intent.putExtra(EXTRA_TV_SHOW_ID, tvShowId);
   }
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,10 @@ public class TvShowActivity extends BaseActivity {
     return modules;
   }
 
+  /**
+   * As TvShowId is mandatory if there is no an extra inside the bundle that launches this activity
+   * we are going to throw a new IllegalArgumentException.
+   */
   private void mapExtras() {
     Bundle extras = getIntent().getExtras();
     if (extras == null) {
@@ -76,6 +85,9 @@ public class TvShowActivity extends BaseActivity {
     }
   }
 
+  /**
+   * Propagates the tv show identifier to the fragment.
+   */
   private void initializeFragment() {
     TvShowFragment tvShowFragment =
         (TvShowFragment) getSupportFragmentManager().findFragmentById(R.id.f_tv_show);

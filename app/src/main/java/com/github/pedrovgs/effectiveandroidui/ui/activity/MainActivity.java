@@ -18,8 +18,6 @@ package com.github.pedrovgs.effectiveandroidui.ui.activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import com.github.pedrovgs.effectiveandroidui.R;
-import com.github.pedrovgs.effectiveandroidui.domain.GetTvShowById;
-import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowCatalogFragment;
 import com.github.pedrovgs.effectiveandroidui.ui.fragment.TvShowDraggableFragment;
@@ -29,10 +27,16 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
 
+/**
+ * Core activity of this application. This activity receives the launch intent and works as core of
+ * the sample application.
+ *
+ * Review how this activity uses fragments to decide how to implement navigation using the
+ * Navigator
+ * entity.
+ */
 public class MainActivity extends BaseActivity implements TvShowCatalogFragment.Listener {
 
-  @Inject GetTvShows getTvShows;
-  @Inject GetTvShowById getTvShowsById;
   @Inject Navigator navigator;
 
   private TvShowDraggableFragment tvShowDraggableFragment;
@@ -42,13 +46,8 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    tvShowDraggableFragment =
-        (TvShowDraggableFragment) getSupportFragmentManager().findFragmentById(
-            R.id.f_tv_show_draggable);
-    tvShowFragment = (TvShowFragment) getSupportFragmentManager().findFragmentById(R.id.f_tv_show);
-    if (tvShowFragment != null && tvShowDraggableFragment != null) {
-      tvShowDraggableFragment.disableSaveInstanceState();
-    }
+    initializeTvShowFragment();
+    initializeTvShowDraggableFragment();
   }
 
   @Override
@@ -58,6 +57,13 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
     return modules;
   }
 
+  /*
+   * This method contains the key of the application navigation. If there are no fragments attached
+   * we will launch TvShowActivity.
+   *
+   * If any fragment is visible we will load the TvShow.
+   *
+   */
   @Override public void onTvShowClicked(final TvShow tvShow) {
     if (canInteractWithFragments()) {
       showTvShowOnTvShowDraggableFragment(tvShow);
@@ -67,11 +73,29 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
     }
   }
 
+  private void initializeTvShowDraggableFragment() {
+    tvShowDraggableFragment =
+        (TvShowDraggableFragment) getSupportFragmentManager().findFragmentById(
+            R.id.f_tv_show_draggable);
+    /*
+     * If both fragments are visible we have to disable saved instance state in draggable
+     * fragment because there are different fragment configurations in activity_main.xml
+     * when the device is in portrait or landscape. Review layout- directory to get more
+     * information.
+     */
+    if (tvShowFragment != null && tvShowDraggableFragment != null) {
+      tvShowDraggableFragment.disableSaveInstanceState();
+    }
+  }
+
+  private void initializeTvShowFragment() {
+    tvShowFragment = (TvShowFragment) getSupportFragmentManager().findFragmentById(R.id.f_tv_show);
+  }
+
   /**
    * Method created to open TvShowActivity for Android 2.X versions. This method is going to use a
    * Navigator object to open TvShowActivity. This method could be inside a presenter or view
-   * model,
-   * but to the sample we are going to use the Navigator object from this activity.
+   * model, but to the sample we are going to use the Navigator object from this activity.
    *
    * Is possible to start an activity from a presenter or view model because we have a activity
    * scope module to provide the current activity context.
@@ -98,7 +122,12 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
     }
   }
 
+  /**
+   * Check if the fragment is ready to be notified of a new TvShow loaded.
+   *
+   * @return true if the Fragment instance is not null and is attached.
+   */
   private boolean isFragmentAvailable(Fragment fragment) {
-    return fragment != null;
+    return fragment != null && fragment.isAdded();
   }
 }

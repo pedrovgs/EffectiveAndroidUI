@@ -26,6 +26,8 @@ import dagger.Provides;
 /**
  * Dagger module created to work as junction of every module with an application scope.
  *
+ * This module provides every application scope dependencies related with the AndroidSDK.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 

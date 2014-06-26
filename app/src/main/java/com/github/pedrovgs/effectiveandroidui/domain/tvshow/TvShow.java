@@ -21,7 +21,7 @@ import java.io.Serializable;
  * Contains all the information related with a TvShow.
  *
  * Title field works as TvShow identifier because for the sample we don't have a unique identifier
- * ready to be used.
+ * ready to be used for this sample.
  *
  * @author Pedro Vicente Gómez Sánchez
  */

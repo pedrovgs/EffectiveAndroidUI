@@ -21,6 +21,9 @@ import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module created to provide every domain dependencies as interactors or the main class of
+ * this application: Catalog.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 @Module(library = true, complete = false)

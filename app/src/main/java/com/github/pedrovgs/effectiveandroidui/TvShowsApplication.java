@@ -25,7 +25,8 @@ import java.util.List;
  * <p/>
  * This project is using Dependency Injection based on Dagger as dependency injector. The
  * ObjectGraph field used in this class is the dependency container that is going to provide every
- * dependency declared in Dagger modules.
+ * dependency declared in Dagger modules. Take a look to BaseActivit to see how the Activity scope
+ * injection works using the plus method implemented here.
  *
  * @author Pedro Vicente Gómez Sánchez
  */
@@ -50,9 +51,9 @@ public class TvShowsApplication extends Application {
    */
   private void initializeUiManager() {
     /*
-    UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-    uiModeManager.enableCarMode(0);
-    uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_AUTO);
+     * UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+     * uiModeManager.enableCarMode(0);
+     * uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_AUTO);
     */
   }
 

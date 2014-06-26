@@ -26,6 +26,10 @@ public class TimeMachine {
 
   private static Handler handler = new Handler();
 
+  private TimeMachine() {
+    //Empty
+  }
+
   /**
    * Execute a Runnable implementation some milliseconds in the future.
    *

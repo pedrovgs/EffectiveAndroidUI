@@ -26,9 +26,10 @@ import javax.inject.Singleton;
  *
  * This is a sample of Model View Presenter pattern described in the talk Effective Android UI.
  *
- * We have attached the presenter to the Fragment lifecycle using method like initialize() resume()
- * and pause(). We are going to use this methods to connect our presenter with Android components
- * lifecycle.
+ * This presenter is not attached to the fragment lifecycle because we don't have to show any
+ * TvShow
+ * until the TvShow be selected by the user or updated by the fragment lifecycle while the restore
+ * instance state process.
  *
  * @author Pedro Vicente Gómez Sánchez
  */
@@ -82,21 +83,29 @@ public class TvShowPresenter extends Presenter {
       }
 
       @Override public void onTvShowNotFound() {
-        if (view.isReady()) {
-          currentTvShow = null;
-          view.hideLoading();
-          view.showTvShowNotFoundMessage();
-        }
+        showTvShowNotFound();
       }
 
       @Override public void onConnectionError() {
-        if (view.isReady() && !view.isAlreadyLoaded()) {
-          currentTvShow = null;
-          view.hideLoading();
-          view.showConnectionErrorMessage();
-        }
+        showConnectionError();
       }
     });
+  }
+
+  private void showConnectionError() {
+    if (view.isReady() && !view.isAlreadyLoaded()) {
+      currentTvShow = null;
+      view.hideLoading();
+      view.showConnectionErrorMessage();
+    }
+  }
+
+  private void showTvShowNotFound() {
+    if (view.isReady()) {
+      currentTvShow = null;
+      view.hideLoading();
+      view.showTvShowNotFoundMessage();
+    }
   }
 
   private void showTvShow(TvShow tvShow) {
@@ -111,7 +120,7 @@ public class TvShowPresenter extends Presenter {
   }
 
   /**
-   * View interface created to abstract the view implementation used in this sample.
+   * View interface created to abstract the view implementation used in this presenter.
    */
   public interface View {
 

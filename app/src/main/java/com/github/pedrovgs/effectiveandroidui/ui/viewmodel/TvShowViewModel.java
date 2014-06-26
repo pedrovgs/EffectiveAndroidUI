@@ -58,47 +58,21 @@ public class TvShowViewModel {
     listener.onEmptyCaseVisibilityChanged(false);
     getTvShowById.execute(tvShowId, new GetTvShowById.Callback() {
       @Override public void onTvShowLoaded(TvShow tvShow) {
-        showTvShowOnBrowserActionCommand.setTvShowUrl(tvShow.getPoster());
-        if (isReady) {
-          listener.onFanArtLoaded(tvShow.getFanArt());
-          listener.onTvShowTitleLoaded(tvShow.getTitle());
-          listener.onChaptersLoaded(getChaptersViewModel(tvShow.getChapters()));
-          listener.onVisibilityChanged(true);
-          listener.onLoadVisibilityChanged(false);
-          listener.onEmptyCaseVisibilityChanged(false);
-        }
+        notifyTvShowLoaded(tvShow);
       }
 
       @Override public void onTvShowNotFound() {
-        if (isReady) {
-          listener.onLoadVisibilityChanged(false);
-          listener.onVisibilityChanged(false);
-          listener.onEmptyCaseVisibilityChanged(true);
-          listener.onTvShowMessageNotFound();
-        }
+        notifyTvShowNotFound();
       }
 
       @Override public void onConnectionError() {
-        if (isReady) {
-          listener.onLoadVisibilityChanged(false);
-          listener.onVisibilityChanged(false);
-          listener.onEmptyCaseVisibilityChanged(true);
-          listener.onConnectionErrorMessageNotFound();
-        }
+        notifyConnectionError();
       }
     });
   }
 
   public ActionCommand getTvShowClickedCommand() {
     return showTvShowOnBrowserActionCommand;
-  }
-
-  private List<ChapterViewModel> getChaptersViewModel(ChapterCollection chapterCollection) {
-    List<ChapterViewModel> chapterViewModels = new LinkedList<ChapterViewModel>();
-    for (Chapter chapter : chapterCollection) {
-      chapterViewModels.add(new ChapterViewModel(chapter));
-    }
-    return chapterViewModels;
   }
 
   public void setListener(TvShowFragment listener) {
@@ -113,6 +87,48 @@ public class TvShowViewModel {
     this.isReady = isReady;
   }
 
+  private void notifyConnectionError() {
+    if (isReady) {
+      listener.onLoadVisibilityChanged(false);
+      listener.onVisibilityChanged(false);
+      listener.onEmptyCaseVisibilityChanged(true);
+      listener.onConnectionErrorMessageNotFound();
+    }
+  }
+
+  private void notifyTvShowNotFound() {
+    if (isReady) {
+      listener.onLoadVisibilityChanged(false);
+      listener.onVisibilityChanged(false);
+      listener.onEmptyCaseVisibilityChanged(true);
+      listener.onTvShowMessageNotFound();
+    }
+  }
+
+  private void notifyTvShowLoaded(TvShow tvShow) {
+    showTvShowOnBrowserActionCommand.setTvShowUrl(tvShow.getPoster());
+    if (isReady) {
+      listener.onFanArtLoaded(tvShow.getFanArt());
+      listener.onTvShowTitleLoaded(tvShow.getTitle());
+      listener.onChaptersLoaded(getChaptersViewModel(tvShow.getChapters()));
+      listener.onVisibilityChanged(true);
+      listener.onLoadVisibilityChanged(false);
+      listener.onEmptyCaseVisibilityChanged(false);
+    }
+  }
+
+  private List<ChapterViewModel> getChaptersViewModel(ChapterCollection chapterCollection) {
+    List<ChapterViewModel> chapterViewModels = new LinkedList<ChapterViewModel>();
+    for (Chapter chapter : chapterCollection) {
+      chapterViewModels.add(new ChapterViewModel(chapter));
+    }
+    return chapterViewModels;
+  }
+
+  /**
+   * Interface created to work as ViewModel listener. Every change in the view model will be
+   * notified to Listener implementation.
+   */
   public interface Listener {
 
     void onFanArtLoaded(final String fanArt);

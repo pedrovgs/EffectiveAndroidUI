@@ -21,7 +21,7 @@ import javax.inject.Singleton;
 
 /**
  * Dagger module created to provide every dependency related with our execution service. Main
- * dependencies provided by this module are: Executor and MainThread.
+ * dependencies provided by this module are: ThreadExecutor and MainThreadImpl.
  *
  * @author Pedro Vicente Gómez Sánchez
  */

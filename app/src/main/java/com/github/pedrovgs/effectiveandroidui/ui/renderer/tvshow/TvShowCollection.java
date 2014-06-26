@@ -25,12 +25,15 @@ import java.util.List;
 /**
  * AdapteeCollection implementation for TvShow.
  *
+ * If you want to lear more about how to use Renderers take a look to this project:
+ * https://github.com/pedrovgs/Renderers.
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 public class TvShowCollection implements AdapteeCollection<TvShow>, Serializable {
   private static final long serialVersionUID = 8799677673292716638L;
 
-  private final LinkedList<TvShow> tvShows;
+  private final List<TvShow> tvShows;
 
   public TvShowCollection() {
     this(new LinkedList<TvShow>());
@@ -70,6 +73,6 @@ public class TvShowCollection implements AdapteeCollection<TvShow>, Serializable
   }
 
   public List<TvShow> getAsList() {
-    return (List<TvShow>) tvShows.clone();
+    return (List<TvShow>) ((LinkedList<TvShow>) tvShows).clone();
   }
 }
