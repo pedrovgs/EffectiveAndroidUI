@@ -25,6 +25,10 @@ import android.widget.Toast;
  */
 public class ToastUtils {
 
+  private ToastUtils() {
+    //Empty
+  }
+
   public static void showError(final String message, final Context context) {
     getToast(message, context).show();
   }
