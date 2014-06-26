@@ -28,16 +28,17 @@ import java.util.Set;
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class ChapterCollection implements Iterable<Chapter>, Serializable {
+
   private static final long serialVersionUID = 8799656478677673292L;
 
-  private final LinkedHashSet<Chapter> chapters;
+  private final Set<Chapter> chapters;
 
   public ChapterCollection() {
     this.chapters = new LinkedHashSet<Chapter>();
   }
 
   public Collection<Chapter> getChapters() {
-    return (Set<Chapter>) chapters.clone();
+    return (Collection<Chapter>) ((LinkedHashSet<Chapter>) chapters).clone();
   }
 
   public void add(Chapter chapter) {

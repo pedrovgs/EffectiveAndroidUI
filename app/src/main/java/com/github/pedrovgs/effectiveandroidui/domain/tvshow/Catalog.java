@@ -27,7 +27,7 @@ import java.util.Set;
  */
 public class Catalog {
 
-  private final LinkedHashSet<TvShow> tvShows;
+  private final Set<TvShow> tvShows;
 
   /**
    * Default constructor. All this hardcoded information is going to be used as mocked information
@@ -381,7 +381,7 @@ public class Catalog {
    * @return all available TvShow in the catalog.
    */
   public Collection<TvShow> getTvShows() {
-    return (Set<TvShow>) tvShows.clone();
+    return (Set<TvShow>) ((LinkedHashSet<TvShow>) tvShows).clone();
   }
 
   /**
