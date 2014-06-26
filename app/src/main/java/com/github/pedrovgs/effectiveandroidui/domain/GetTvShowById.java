@@ -24,7 +24,7 @@ import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
  */
 public interface GetTvShowById {
 
-  public interface Callback {
+  interface Callback {
     void onTvShowLoaded(final TvShow tvShow);
 
     void onTvShowNotFound();
