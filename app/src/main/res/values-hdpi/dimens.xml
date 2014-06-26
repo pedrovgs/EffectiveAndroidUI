@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <dimen name="poster_height">200dip</dimen>
+  <dimen name="fan_art_height">185dip</dimen>
+
+</resources>
