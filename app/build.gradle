@@ -8,6 +8,7 @@ buildscript {
 }
 apply plugin: 'android'
 apply plugin: 'checkstyle'
+apply plugin: "sonar-runner"
 
 repositories {
   mavenCentral()
@@ -45,6 +46,17 @@ dependencies {
   compile 'com.github.pedrovgs:renderers:1.1.+'
   compile 'com.squareup.picasso:picasso:2.3.+'
   compile 'com.github.pedrovgs:draggablepanel:1.+'
+}
+
+sonarRunner {
+  sonarProperties {
+    property "sonar.projectKey", "EffectiveAndroidUI"
+    property "sonar.projectName", "EffectiveAndroidUI"
+    property "sonar.projectVersion", "1.0"
+    property "sonar.language", "java"
+    property "sonar.sources", "src/main/java"
+    property "sonar.binaries", "build"
+  }
 }
 
 task checkstyle(type: Checkstyle) {
