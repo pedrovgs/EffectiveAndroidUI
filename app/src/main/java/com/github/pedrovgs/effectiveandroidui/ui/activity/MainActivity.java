@@ -63,6 +63,9 @@ public class MainActivity extends BaseActivity implements TvShowCatalogFragment.
    *
    * If any fragment is visible we will load the TvShow.
    *
+   * Other approach to connect fragments could be based on a Bus event implementation. But this is
+   * only valid if you only have fragments in your activity.
+   *
    */
   @Override public void onTvShowClicked(final TvShow tvShow) {
     if (canInteractWithFragments()) {
