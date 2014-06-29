@@ -5,6 +5,7 @@ Sample project created to reinforce some of the main concepts described in the t
 
 In this repository you are going to find som interesting samples like:
 
+* **MVP** and **MVVM** samples.
 * How to use **fragments**.
 * How to use **Dagger to implement dependency injection**.
 * Use **resource qualifiers** to change the layout used in **different screen sizes**.
@@ -19,8 +20,8 @@ In this repository you are going to find som interesting samples like:
 * Different **layout usage**: RelativeLayout, LinearLayout, FrameLayout.
 * Usage of **merge, include and view stub**.
 * Correct **ListView** implementation with **view recycle** using **Renderers**.
-* **Interactor implementtion** described in the talk "Software Design Patterns on Android".
-* Usage of **Dagger to implement twi different scopes: Application scope and Activity scope**.
+* **Interactor implementation** described in the talk "Software Design Patterns on Android".
+* Usage of **Dagger to implement two different scopes: Application scope and Activity scope**.
 
 
 Developed By

@@ -39,7 +39,7 @@ public class TvShowViewModel {
   private final GetTvShowById getTvShowById;
   private final ShowTvShowOnBrowserActionCommand showTvShowOnBrowserActionCommand;
 
-  private TvShowFragment listener;
+  private Listener listener;
   private boolean isReady;
 
   @Inject
@@ -79,7 +79,7 @@ public class TvShowViewModel {
     this.listener = listener;
   }
 
-  public TvShowFragment getListener() {
+  public Listener getListener() {
     return listener;
   }
 
@@ -126,7 +126,8 @@ public class TvShowViewModel {
   }
 
   /**
-   * Interface created to work as ViewModel listener. Every change in the view model will be
+   * Interface created to work as ViewModel listener.
+   * Every change in the view model will be
    * notified to Listener implementation.
    */
   public interface Listener {
