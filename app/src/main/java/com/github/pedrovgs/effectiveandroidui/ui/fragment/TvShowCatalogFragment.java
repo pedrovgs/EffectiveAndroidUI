@@ -119,7 +119,7 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     refreshAdapter();
   }
 
-  @Override public void updateTitleWithCountOfVideow(final int counter) {
+  @Override public void updateTitleWithCountOfTvShows(final int counter) {
     String actionBarTitle = getString(R.string.app_name_with_chapter_counter, counter);
     getActivity().setTitle(actionBarTitle);
   }
@@ -137,11 +137,11 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     getActivity().setTitle(R.string.app_name);
   }
 
-  @Override public void showTvShowInfo(TvShow tvShow) {
-    ToastUtils.showError(tvShow.getTitle(), getActivity());
+  @Override public void showTvShowTitleAsMessage(TvShow tvShow) {
+    ToastUtils.showShortMessage(tvShow.getTitle(), getActivity());
   }
 
-  @Override public void showTvShow(final TvShow tvShow) {
+  @Override public void openTvShow(final TvShow tvShow) {
     if (listener != null) {
       listener.onTvShowClicked(tvShow);
     }

@@ -5,7 +5,7 @@ Sample project created to reinforce some of the main concepts described in the t
 
 In this repository you are going to find som interesting samples like:
 
-* **MVP** and **MVVM** samples.
+* **MVP** and **MVVM (whitout data binding engine)** samples.
 * How to use **fragments**.
 * How to use **Dagger to implement dependency injection**.
 * Use **resource qualifiers** to change the layout used in **different screen sizes**.
@@ -14,7 +14,7 @@ In this repository you are going to find som interesting samples like:
 * How to use **styles and themes**.
 * How to **communicate fragments** in the same activity.
 * **Butterknife** library usage to **avoid UI duplicated code**.
-* Correct **naming** for Android resources.
+* Uniform **naming** for Android resources.
 * How to use **Navigator** or **ActionCommands** to **implement the navigation** inside the application.
 * Use resource custom qualifiers to **split resource files by domain**.
 * Different **layout usage**: RelativeLayout, LinearLayout, FrameLayout.

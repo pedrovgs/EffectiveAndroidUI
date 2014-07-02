@@ -80,11 +80,11 @@ public class TvShowCatalogPresenter extends Presenter {
   }
 
   public void onTvShowThumbnailClicked(final TvShow tvShow) {
-    view.showTvShow(tvShow);
+    view.openTvShow(tvShow);
   }
 
   public void onTvShowClicked(final TvShow tvShow) {
-    view.showTvShowInfo(tvShow);
+    view.showTvShowTitleAsMessage(tvShow);
   }
 
   public TvShowCollection getCurrentTvShows() {
@@ -125,7 +125,7 @@ public class TvShowCatalogPresenter extends Presenter {
     if (view.isReady()) {
       view.renderVideos(tvShows);
       view.hideLoading();
-      view.updateTitleWithCountOfVideow(tvShows.size());
+      view.updateTitleWithCountOfTvShows(tvShows.size());
     }
   }
 
@@ -136,7 +136,8 @@ public class TvShowCatalogPresenter extends Presenter {
   }
 
   /**
-   * View interface created to abstract the view implementation used in this presenter.
+   * View interface created to abstract the view
+   * implementation used in this presenter.
    */
   public interface View {
 
@@ -146,7 +147,7 @@ public class TvShowCatalogPresenter extends Presenter {
 
     void renderVideos(final Collection<TvShow> tvShows);
 
-    void updateTitleWithCountOfVideow(final int counter);
+    void updateTitleWithCountOfTvShows(final int counter);
 
     void showConnectionErrorMessage();
 
@@ -154,9 +155,9 @@ public class TvShowCatalogPresenter extends Presenter {
 
     void showDefaultTitle();
 
-    void showTvShowInfo(TvShow tvShow);
+    void showTvShowTitleAsMessage(TvShow tvShow);
 
-    void showTvShow(TvShow tvShow);
+    void openTvShow(TvShow tvShow);
 
     boolean isReady();
 
