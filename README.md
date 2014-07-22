@@ -23,6 +23,13 @@ In this repository you are going to find som interesting samples like:
 * **Interactor implementation** described in the talk "Software Design Patterns on Android".
 * Usage of **Dagger to implement two different scopes: Application scope and Activity scope**.
 
+Screenshots
+------------
+
+![Demo Screenshot 1][1]
+![Demo Screenshot 2][2]
+![Demo Screenshot 3][3]
+
 
 Developed By
 ------------
@@ -54,3 +61,6 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
+[1]: ./art/screenshot1.png
+[2]: ./art/screenshot2.png
+[3]: ./art/screenshot3.png
