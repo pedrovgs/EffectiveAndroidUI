@@ -23,8 +23,8 @@ In this repository you are going to find som interesting samples like:
 * **Interactor implementation** described in the talk "Software Design Patterns on Android".
 * Usage of **Dagger to implement two different scopes: Application scope and Activity scope**.
 
-Official paper
---------------
+Implementation description
+--------------------------
 
 [EffectiveAndroid UI Video - Spanish][4]
 
