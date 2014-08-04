@@ -23,6 +23,13 @@ In this repository you are going to find som interesting samples like:
 * **Interactor implementation** described in the talk "Software Design Patterns on Android".
 * Usage of **Dagger to implement two different scopes: Application scope and Activity scope**.
 
+Official paper
+--------------
+
+[EffectiveAndroid UI Video - Spanish][4]
+
+[EffectiveAndroid UI Slides - Spanish][5]
+
 Screenshots
 ------------
 
@@ -64,3 +71,5 @@ License
 [1]: ./art/screenshot1.png
 [2]: ./art/screenshot2.png
 [3]: ./art/screenshot3.png
+[4]: https://www.youtube.com/watch?v=N6yqe88ysNw
+[5]: http://www.slideshare.net/PedroVicenteGmezSnch/effective-android-ui-spanish
