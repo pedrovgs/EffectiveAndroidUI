@@ -1,4 +1,4 @@
-Effective Android UI
+Effective Android UI [![Build Status](https://travis-ci.org/pedrovgs/EffectiveAndroidUI.svg?branch=develop)](https://travis-ci.org/pedrovgs/EffectiveAndroidUI) 
 ====================
 
 Sample project created to reinforce some of the main concepts described in the tech talk "Effective Android UI".
