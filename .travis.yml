@@ -1,0 +1,11 @@
+language: android
+
+android:
+  components:
+    - build-tools-20.0.0
+    - android-20
+    - extra-google-google_play_services
+    - extra-google-m2repository
+
+script:
+  ./gradlew build
