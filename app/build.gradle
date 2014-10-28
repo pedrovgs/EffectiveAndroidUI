@@ -3,10 +3,10 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:0.9.+'
+    classpath 'com.android.tools.build:gradle:0.13.0'
   }
 }
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 apply plugin: 'checkstyle'
 apply plugin: "sonar-runner"
 
@@ -15,12 +15,12 @@ repositories {
 }
 
 android {
-  compileSdkVersion 19
-  buildToolsVersion "19.1.0"
+  compileSdkVersion 21
+  buildToolsVersion "21.0.2"
 
   defaultConfig {
     minSdkVersion 8
-    targetSdkVersion 19
+    targetSdkVersion 21
     versionCode 1
     versionName "1.0"
   }
@@ -37,8 +37,8 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:appcompat-v7:19.1.0'
-  compile 'com.android.support:support-v4:19.1.0'
+  compile 'com.android.support:appcompat-v7:21.0.0'
+  compile 'com.android.support:support-v4:21.0.0'
   compile 'javax.inject:javax.inject:1@jar'
   compile 'com.squareup.dagger:dagger-compiler:1.2.+'
   compile 'com.squareup.dagger:dagger:1.2.+'

@@ -6,9 +6,16 @@ buildscript {
     mavenLocal()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:0.9.+'
+    classpath 'com.android.tools.build:gradle:0.13.0'
   }
 }
 
-
-
+allprojects {
+  repositories {
+    // Work around https://code.google.com/p/android/issues/detail?id=69270.
+    def androidHome = System.getenv("ANDROID_HOME")
+    maven {
+      url "$androidHome/extras/android/m2repository/"
+    }
+  }
+}
