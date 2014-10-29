@@ -65,5 +65,5 @@ task checkstyle(type: Checkstyle) {
   include '**/*.java'
   exclude '**/gen/**'
 
-  classpath = files(project.configurations.compile.asPath)
+  classpath = files()
 }
