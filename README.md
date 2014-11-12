@@ -37,6 +37,15 @@ Screenshots
 ![Demo Screenshot 2][2]
 ![Demo Screenshot 3][3]
 
+Libraries used on the sample project
+------------------------------------
+
+* [Renderers][6]
+* [Dagger][7]
+* [Butterknife][8]
+* [Picasso][9]
+* [DraggablePanel][10]
+
 
 Developed By
 ------------
@@ -73,3 +82,8 @@ License
 [3]: ./art/screenshot3.png
 [4]: https://www.youtube.com/watch?v=N6yqe88ysNw
 [5]: http://www.slideshare.net/PedroVicenteGmezSnch/effective-android-ui-spanish
+[6]: https://github.com/pedrovgs/Renderers
+[7]: https://github.com/square/dagger
+[8]: https://github.com/JakeWharton/butterknife
+[9]: https://github.com/square/picasso
+[10]: https://github.com/pedrovgs/DraggablePanel
