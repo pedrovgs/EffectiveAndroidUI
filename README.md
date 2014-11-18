@@ -28,7 +28,7 @@ Implementation description
 
 [EffectiveAndroid UI Video - Spanish][4]
 
-[EffectiveAndroid UI Slides - Spanish][5]
+[EffectiveAndroid UI Slides - English][5]
 
 Screenshots
 ------------
@@ -81,7 +81,7 @@ License
 [2]: ./art/screenshot2.png
 [3]: ./art/screenshot3.png
 [4]: https://www.youtube.com/watch?v=N6yqe88ysNw
-[5]: http://www.slideshare.net/PedroVicenteGmezSnch/effective-android-ui-spanish
+[5]: http://www.slideshare.net/PedroVicenteGmezSnch/effective-android-ui-english
 [6]: https://github.com/pedrovgs/Renderers
 [7]: https://github.com/square/dagger
 [8]: https://github.com/JakeWharton/butterknife
