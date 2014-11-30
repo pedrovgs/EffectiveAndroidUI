@@ -21,7 +21,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * Contains all the available TvShows for this sample. All this harcoded data simulates some
+ * Contains all the available TvShows for this sample. All this hard coded data simulates some
  * information obtained from an external service.
  *
  * @author Pedro Vicente Gómez Sánchez
@@ -393,7 +393,6 @@ public class Catalog {
    *
    * @param tvShowId used to search inside the catalog.
    * @return a TvShow that matches with the parameter passed as identifier.
-   * @throws TvShowNotFoundException if there is no TvShow associated to the id passed as
    * parameter.
    */
   public TvShow getTvShowById(String tvShowId) throws TvShowNotFoundException {

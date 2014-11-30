@@ -43,8 +43,7 @@ import java.util.LinkedList;
     injects = {
         MainActivity.class, TvShowCatalogFragment.class, TvShowDraggableFragment.class,
         TvShowFragment.class, TvShowActivity.class
-    })
-public final class TvShowUIModule {
+    }) public final class TvShowUIModule {
 
   @Provides TvShowRendererBuilder provideTvShowRendererBuilder(TvShowRenderer tvShowRenderer) {
     LinkedList<Renderer<TvShow>> renderers = new LinkedList<Renderer<TvShow>>();

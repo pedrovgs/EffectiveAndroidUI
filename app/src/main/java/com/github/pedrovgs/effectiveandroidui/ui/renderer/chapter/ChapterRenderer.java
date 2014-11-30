@@ -40,8 +40,7 @@ public class ChapterRenderer extends Renderer<Chapter> {
   @InjectView(R.id.tv_chapter_title) TextView tv_chapter_title;
   @InjectView(R.id.tv_chapter_publish_date) TextView tv_chapter_publish_date;
 
-  @Inject
-  public ChapterRenderer() {
+  @Inject public ChapterRenderer() {
   }
 
   private int position;
@@ -50,23 +49,19 @@ public class ChapterRenderer extends Renderer<Chapter> {
     this.position = position;
   }
 
-  @Override
-  protected void setUpView(View view) {
+  @Override protected void setUpView(View view) {
     ButterKnife.inject(this, view);
   }
 
-  @Override
-  protected void hookListeners(View view) {
+  @Override protected void hookListeners(View view) {
     //Empty because we are using ButterKnife to inject views.
   }
 
-  @Override
-  protected View inflate(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+  @Override protected View inflate(LayoutInflater layoutInflater, ViewGroup viewGroup) {
     return layoutInflater.inflate(R.layout.row_chapter, viewGroup, false);
   }
 
-  @Override
-  public void render() {
+  @Override public void render() {
     Chapter chapter = getContent();
     renderChapterNumber();
     renderChapterTitle(chapter);

@@ -56,7 +56,8 @@ class GetTvShowsInteractor implements Interactor, GetTvShows {
   @Override public void execute(final Callback callback) {
     if (callback == null) {
       throw new IllegalArgumentException(
-          "Callback can't be null, the client of this interactor needs to get the response in the callback");
+          "Callback can't be null, the client of this interactor needs to get the response "
+              + "in the callback");
     }
     this.callback = callback;
     this.executor.run(this);
