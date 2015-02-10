@@ -17,6 +17,7 @@ package com.github.pedrovgs.effectiveandroidui.ui.presenter;
 
 import com.github.pedrovgs.effectiveandroidui.domain.GetTvShows;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.TvShow;
+import com.github.pedrovgs.effectiveandroidui.ui.activity.Navigator;
 import com.github.pedrovgs.effectiveandroidui.ui.renderer.tvshow.TvShowCollection;
 import java.util.Collection;
 import javax.inject.Inject;
@@ -37,13 +38,15 @@ import javax.inject.Singleton;
 public class TvShowCatalogPresenter extends Presenter {
 
   private GetTvShows getTvShowsInteractor;
+  private Navigator navigator;
 
   private View view;
   private TvShowCollection currentTvShowCollection;
 
   @Inject
-  public TvShowCatalogPresenter(GetTvShows getTvShowsInteractor) {
+  public TvShowCatalogPresenter(GetTvShows getTvShowsInteractor, Navigator navigator) {
     this.getTvShowsInteractor = getTvShowsInteractor;
+    this.navigator = navigator;
   }
 
   public void setView(View view) {
@@ -80,7 +83,7 @@ public class TvShowCatalogPresenter extends Presenter {
   }
 
   public void onTvShowThumbnailClicked(final TvShow tvShow) {
-    view.openTvShow(tvShow);
+      navigator.openTvShowDetails(tvShow);
   }
 
   public void onTvShowClicked(final TvShow tvShow) {
@@ -156,8 +159,6 @@ public class TvShowCatalogPresenter extends Presenter {
     void showDefaultTitle();
 
     void showTvShowTitleAsMessage(TvShow tvShow);
-
-    void openTvShow(TvShow tvShow);
 
     boolean isReady();
 
