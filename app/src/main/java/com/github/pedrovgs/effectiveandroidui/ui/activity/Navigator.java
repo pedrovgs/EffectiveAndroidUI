@@ -43,7 +43,7 @@ public class Navigator {
 
     private TvShowFragment tvShowFragment;
     private TvShowDraggableFragment tvShowDraggableFragment;
-    
+
     private final Context activityContext;
 
     @Inject
@@ -70,14 +70,15 @@ public class Navigator {
             openTvShowActivity(tvShow.getTitle());
         }
     }
-    
+
     private FragmentManager getFragmentManager() {
-        return ((FragmentActivity)activityContext).getSupportFragmentManager();
+        return ((FragmentActivity) activityContext).getSupportFragmentManager();
     }
 
     private boolean canInteractWithFragments() {
         tvShowFragment = (TvShowFragment) getFragmentManager().findFragmentById(R.id.f_tv_show);
-        tvShowDraggableFragment = (TvShowDraggableFragment) getFragmentManager().findFragmentById(R.id.f_tv_show_draggable);;
+        tvShowDraggableFragment = (TvShowDraggableFragment) getFragmentManager().findFragmentById(R.id.f_tv_show_draggable);
+        ;
 
         return tvShowDraggableFragment != null || tvShowFragment != null;
     }
@@ -102,7 +103,7 @@ public class Navigator {
     private boolean isFragmentAvailable(Fragment fragment) {
         return fragment != null && fragment.isAdded();
     }
-    
+
     /**
      * Open TvShowActivity using a tvShowId.
      */
