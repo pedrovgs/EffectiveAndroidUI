@@ -77,8 +77,8 @@ public class Navigator {
 
     private boolean canInteractWithFragments() {
         tvShowFragment = (TvShowFragment) getFragmentManager().findFragmentById(R.id.f_tv_show);
-        tvShowDraggableFragment = (TvShowDraggableFragment) getFragmentManager().findFragmentById(R.id.f_tv_show_draggable);
-        ;
+        tvShowDraggableFragment =
+                (TvShowDraggableFragment) getFragmentManager().findFragmentById(R.id.f_tv_show_draggable);
 
         return tvShowDraggableFragment != null || tvShowFragment != null;
     }
