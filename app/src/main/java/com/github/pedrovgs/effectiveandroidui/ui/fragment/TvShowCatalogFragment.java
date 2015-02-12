@@ -55,8 +55,6 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
   private RendererAdapter<TvShow> adapter;
   private TvShowCollection tvShows = new TvShowCollection();
 
-  private Listener listener;
-
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
   @InjectView(R.id.gv_tv_shows) GridView gv_tv_shows;
   @InjectView(R.id.v_empty_case) View v_empty_case;
@@ -70,9 +68,6 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
 
   @Override public void onAttach(Activity activity) {
     super.onAttach(activity);
-    if (activity instanceof Listener) {
-      this.listener = (Listener) activity;
-    }
   }
 
   @Override public void onResume() {
@@ -141,12 +136,6 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     ToastUtils.showShortMessage(tvShow.getTitle(), getActivity());
   }
 
-  @Override public void openTvShow(final TvShow tvShow) {
-    if (listener != null) {
-      listener.onTvShowClicked(tvShow);
-    }
-  }
-
   @Override public boolean isReady() {
     return isAdded();
   }
@@ -172,10 +161,5 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
 
   private void refreshAdapter() {
     adapter.notifyDataSetChanged();
-  }
-
-  public interface Listener {
-
-    void onTvShowClicked(final TvShow tvShow);
   }
 }
