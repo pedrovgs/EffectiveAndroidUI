@@ -5,7 +5,7 @@ Sample project created to reinforce some of the main concepts described in the t
 
 In this repository you are going to find som interesting samples like:
 
-* **MVP** and **MVVM (whitout data binding engine)** samples.
+* **MVP** and **MVVM (without data binding engine)** samples.
 * How to use **fragments**.
 * How to use **Dagger to implement dependency injection**.
 * Use **resource qualifiers** to change the layout used in **different screen sizes**.
