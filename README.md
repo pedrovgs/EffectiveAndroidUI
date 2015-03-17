@@ -3,7 +3,7 @@ Effective Android UI [![Build Status](https://travis-ci.org/pedrovgs/EffectiveAn
 
 Sample project created to reinforce some of the main concepts described in the tech talk "Effective Android UI".
 
-In this repository you are going to find som interesting samples like:
+In this repository you are going to find some interesting samples like:
 
 * **MVP** and **MVVM (without data binding engine)** samples.
 * How to use **fragments**.
