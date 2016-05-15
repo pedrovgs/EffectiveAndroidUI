@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/v_row_container"
-    style="@style/AppTheme.TvShow">
+    style="@style/CustomeStyle.TvShow">
 
   <ImageView
       android:id="@+id/iv_thumbnail"
-      style="@style/AppTheme.Image.TvShow"
+      style="@style/CustomeStyle.Image.TvShow"
       android:layout_alignParentTop="true"/>
 
   <TextView
       android:id="@+id/tv_title"
       android:layout_below="@+id/iv_thumbnail"
-      style="@style/AppTheme.Title.TvShow"/>
+      style="@style/CustomeStyle.Title.TvShow"/>
 
   <TextView
       android:id="@+id/tv_seasons_counter"
       android:layout_below="@+id/tv_title"
-      style="@style/AppTheme.Subtitle.TvShow"/>
+      style="@style/CustomeStyle.Subtitle.TvShow"/>
 
 </RelativeLayout>
