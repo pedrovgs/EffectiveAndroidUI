@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/AppTheme.RootView">
+    style="@style/CustomeStyle.RootView">
 
   <!-- ProgressBar -->
 
   <ProgressBar
       android:id="@+id/pb_loading"
-      style="@style/AppTheme.ProgressBar"/>
+      style="@style/CustomeStyle.ProgressBar"/>
 
   <!-- DraggableView -->
 
@@ -29,14 +29,14 @@
     <ListView
         android:id="@+id/lv_chapters"
         android:layout_below="@+id/iv_fan_art"
-        style="@style/AppTheme.ListView"/>
+        style="@style/CustomeStyle.ListView"/>
 
     <!-- TvShow Fan Art -->
 
     <ImageView
         android:id="@+id/iv_fan_art"
         android:layout_alignParentTop="true"
-        style="@style/AppTheme.Image.TvShowFranArt"/>
+        style="@style/CustomeStyle.Image.TvShowFranArt"/>
 
   </com.github.pedrovgs.DraggableView>
 
