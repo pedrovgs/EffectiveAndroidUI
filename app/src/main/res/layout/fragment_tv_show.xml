@@ -5,20 +5,20 @@
     android:layout_height="match_parent">
 
   <LinearLayout
-      style="@style/AppTheme.RootView.Vertical">
+      style="@style/CustomStyle.RootView.Vertical">
 
     <!-- TvShow Fan Art -->
 
     <ImageView
         android:id="@+id/iv_fan_art"
-        style="@style/AppTheme.Image.TvShowFranArt"/>
+        style="@style/CustomStyle.Image.TvShowFranArt"/>
 
     <!-- ListView Chapters -->
 
     <ListView
         android:id="@+id/lv_chapters"
         android:visibility="gone"
-        style="@style/AppTheme.ListView"/>
+        style="@style/CustomStyle.ListView"/>
 
   </LinearLayout>
 
@@ -26,13 +26,13 @@
 
   <ProgressBar
       android:id="@+id/pb_loading"
-      style="@style/AppTheme.ProgressBar"/>
+      style="@style/CustomStyle.ProgressBar"/>
 
   <!-- EmptyCase -->
 
   <ImageView
       android:id="@+id/v_empty_case"
-      style="@style/AppTheme.EmptyCase"/>
+      style="@style/CustomStyle.EmptyCase"/>
 
 
 </FrameLayout>
