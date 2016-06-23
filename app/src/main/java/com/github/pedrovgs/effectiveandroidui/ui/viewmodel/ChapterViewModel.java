@@ -89,7 +89,7 @@ public class ChapterViewModel {
   /**
    * NullObject pattern implementation to avoid listener field null checks inside this view model.
    */
-  private class NullListener implements Listener {
+  private static class NullListener implements Listener {
     @Override public void onRateChanged(int rate) {
       //Empty
     }
