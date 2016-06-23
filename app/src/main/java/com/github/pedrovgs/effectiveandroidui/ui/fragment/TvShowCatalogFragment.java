@@ -66,10 +66,6 @@ public class TvShowCatalogFragment extends BaseFragment implements TvShowCatalog
     tvShowCatalogPresenter.initialize();
   }
 
-  @Override public void onAttach(Activity activity) {
-    super.onAttach(activity);
-  }
-
   @Override public void onResume() {
     super.onResume();
     tvShowCatalogPresenter.resume();

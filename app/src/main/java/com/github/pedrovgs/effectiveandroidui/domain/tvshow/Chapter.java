@@ -50,12 +50,18 @@ public class Chapter implements Serializable {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Chapter)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Chapter)) {
+      return false;
+    }
 
     Chapter chapter = (Chapter) o;
 
-    if (!title.equals(chapter.title)) return false;
+    if (!title.equals(chapter.title)) {
+      return false;
+    }
 
     return true;
   }

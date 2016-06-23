@@ -31,7 +31,6 @@ import java.util.List;
  */
 public class MainActivity extends BaseActivity {
 
-    private TvShowDraggableFragment tvShowDraggableFragment;
     private TvShowFragment tvShowFragment;
 
     @Override
@@ -54,7 +53,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initializeTvShowDraggableFragment() {
-        tvShowDraggableFragment =
+        TvShowDraggableFragment tvShowDraggableFragment =
                 (TvShowDraggableFragment) getSupportFragmentManager().findFragmentById(
                         R.id.f_tv_show_draggable);
     /*

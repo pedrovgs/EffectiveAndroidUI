@@ -10,4 +10,4 @@ android:
     - extra-android-support
 
 script:
-  ./gradlew checkstyle build
+  ./gradlew checkstyle pmd build
