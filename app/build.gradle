@@ -94,8 +94,7 @@ task pmd(type: Pmd) {
 task findbugs(type: FindBugs) {
   ignoreFailures = false
   effort = "max"
-  reportLevel = "high"
-  excludeFilter = new File("${project.rootDir}/config/findbugs/findbugs-config.xml")
+  excludeFilter = new File("${project.rootDir}/config/findbugs/findbugs-excludes.xml")
   classes = files("${project.rootDir}/app/build/intermediates/classes")
 
   source 'src'

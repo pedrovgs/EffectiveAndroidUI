@@ -1,15 +1,11 @@
 <FindBugsFilter>
-    <!-- Fallback excludes file.  This file will be used when a project lacks a findbugs-excludes.xml file -->
+    <!--Source: https://github.com/vincentbrison/vb-android-app-quality/blob/master/config/quality/findbugs/findbugs-filter.xml-->
+
+    <!-- http://stackoverflow.com/questions/7568579/eclipsefindbugs-exclude-filter-files-doesnt-work -->
     <Match>
-        <Source name="~.*\.groovy" />
-        <Or>
-            <Field name="~__.*" />
-            <Field name="~\$.*" />
-            <Method name="~\$.*" />
-        </Or>
+        <Class name="~.*\.R\$.*"/>
     </Match>
     <Match>
-        <Source name="~.*\.groovy" />
-        <Bug code="UPM" />
+        <Class name="~.*\.Manifest\$.*"/>
     </Match>
 </FindBugsFilter>
