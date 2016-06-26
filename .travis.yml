@@ -10,4 +10,5 @@ android:
     - extra-android-support
 
 script:
-  ./gradlew checkstyle build
+  # Place findbugs after build
+  ./gradlew checkstyle pmd build findbugs

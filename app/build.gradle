@@ -8,6 +8,8 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
 apply plugin: "sonar-runner"
 
 repositories {
@@ -64,6 +66,51 @@ task checkstyle(type: Checkstyle) {
   source 'src/main/java'
   include '**/*.java'
   exclude '**/gen/**'
+
+  classpath = files()
+}
+
+task pmd(type: Pmd) {
+  ignoreFailures = false
+  ruleSetFiles = files("${project.rootDir}/config/pmd/pmd-ruleset.xml")
+  ruleSets = []
+
+  source 'src'
+  include '**/*.java'
+  exclude '**/gen/**'
+
+  reports {
+    xml.enabled = false
+    html.enabled = true
+    xml {
+      destination "$project.buildDir/reports/pmd/pmd.xml"
+    }
+    html {
+      destination "$project.buildDir/reports/pmd/pmd.html"
+    }
+  }
+}
+
+task findbugs(type: FindBugs) {
+  ignoreFailures = false
+  effort = "max"
+  excludeFilter = new File("${project.rootDir}/config/findbugs/findbugs-excludes.xml")
+  classes = files("${project.rootDir}/app/build/intermediates/classes")
+
+  source 'src'
+  include '**/*.java'
+  exclude '**/gen/**'
+
+  reports {
+    xml.enabled = false
+    html.enabled = true
+    xml {
+      destination "$project.buildDir/reports/findbugs/findbugs.xml"
+    }
+    html {
+      destination "$project.buildDir/reports/findbugs/findbugs.html"
+    }
+  }
 
   classpath = files()
 }

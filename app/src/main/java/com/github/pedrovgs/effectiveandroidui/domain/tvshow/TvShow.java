@@ -86,12 +86,18 @@ public class TvShow implements Serializable {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof TvShow)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof TvShow)) {
+      return false;
+    }
 
     TvShow tvShow = (TvShow) o;
 
-    if (!title.equals(tvShow.title)) return false;
+    if (!title.equals(tvShow.title)) {
+      return false;
+    }
 
     return true;
   }

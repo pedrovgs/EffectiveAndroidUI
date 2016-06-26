@@ -34,6 +34,7 @@ public class Catalog {
    * Default constructor. All this hardcoded information is going to be used as mocked information
    * for the demo application.
    */
+  @SuppressWarnings("PMD.AvoidDuplicateLiterals")
   public Catalog() {
     this.tvShows = new LinkedHashSet<TvShow>();
     TvShow tvShow =

@@ -1,0 +1,11 @@
+<FindBugsFilter>
+    <!--Source: https://github.com/vincentbrison/vb-android-app-quality/blob/master/config/quality/findbugs/findbugs-filter.xml-->
+
+    <!-- http://stackoverflow.com/questions/7568579/eclipsefindbugs-exclude-filter-files-doesnt-work -->
+    <Match>
+        <Class name="~.*\.R\$.*"/>
+    </Match>
+    <Match>
+        <Class name="~.*\.Manifest\$.*"/>
+    </Match>
+</FindBugsFilter>

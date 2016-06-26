@@ -49,6 +49,7 @@ public class TvShowsApplication extends Application {
    * color changes to show how it works.
    *
    */
+  @SuppressWarnings("PMD.UnusedPrivateMethod")
   private void initializeUiManager() {
     /*
      * UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
