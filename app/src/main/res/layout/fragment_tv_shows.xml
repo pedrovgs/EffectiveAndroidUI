@@ -2,24 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.github.pedrovgs.effectiveandroidui.ui.activity.MainActivity$PlaceholderFragment"
-    style="@style/AppTheme.RootView">
+    style="@style/CustomStyle.RootView">
 
   <!-- ProgressBar -->
 
   <ProgressBar
       android:id="@+id/pb_loading"
-      style="@style/AppTheme.ProgressBar"/>
+      style="@style/CustomStyle.ProgressBar"/>
 
   <!-- EmptyCase -->
 
   <ImageView
       android:id="@+id/v_empty_case"
-      style="@style/AppTheme.EmptyCase"/>
+      style="@style/CustomStyle.EmptyCase"/>
 
   <!-- GridView -->
 
   <GridView
       android:id="@+id/gv_tv_shows"
-      style="@style/AppTheme.GridView"/>
+      style="@style/CustomStyle.GridView"/>
 
 </RelativeLayout>

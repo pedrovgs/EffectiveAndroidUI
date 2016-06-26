@@ -7,34 +7,36 @@
     <item name="android:windowBackground">@color/main_color</item>
   </style>
 
-  <style name="AppTheme.RootView">
+  <style name="CustomStyle"/>
+
+  <style name="CustomStyle.RootView">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">match_parent</item>
   </style>
 
-  <style name="AppTheme.RootView.Vertical">
+  <style name="CustomStyle.RootView.Vertical">
     <item name="android:orientation">vertical</item>
   </style>
 
-  <style name="AppTheme.Image">
+  <style name="CustomStyle.Image">
     <item name="android:scaleType">centerCrop</item>
     <item name="android:background">@color/main_color</item>
   </style>
 
-  <style name="AppTheme.Title">
+  <style name="CustomStyle.Title">
     <item name="android:textStyle">bold</item>
     <item name="android:textColor">@color/fourth_color</item>
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
   </style>
 
-  <style name="AppTheme.Subtitle">
+  <style name="CustomStyle.Subtitle">
     <item name="android:textColor">@color/third_color</item>
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
   </style>
 
-  <style name="AppTheme.GridView">
+  <style name="CustomStyle.GridView">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">match_parent</item>
     <item name="android:numColumns">@integer/tv_shows_grid_view_num_colums</item>
@@ -42,14 +44,14 @@
     <item name="android:horizontalSpacing">@dimen/main_margin</item>
   </style>
 
-  <style name="AppTheme.ListView">
+  <style name="CustomStyle.ListView">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">match_parent</item>
     <item name="android:dividerHeight">@dimen/divider_height</item>
     <item name="android:divider">@color/sixth_color</item>
   </style>
 
-  <style name="AppTheme.ProgressBar">
+  <style name="CustomStyle.ProgressBar">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_centerVertical">true</item>
@@ -58,7 +60,7 @@
     <item name="android:visibility">gone</item>
   </style>
 
-  <style name="AppTheme.EmptyCase">
+  <style name="CustomStyle.EmptyCase">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_centerVertical">true</item>
@@ -69,36 +71,36 @@
     <item name="android:src">@drawable/empty_case</item>
   </style>
 
-  <style name="AppTheme.TvShow">
+  <style name="CustomStyle.TvShow">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:background">@color/secondary_color</item>
   </style>
 
-  <style name="AppTheme.Image.TvShow">
+  <style name="CustomStyle.Image.TvShow">
     <item name="android:layout_width">fill_parent</item>
     <item name="android:layout_height">@dimen/poster_height</item>
   </style>
 
-  <style name="AppTheme.Title.TvShow">
+  <style name="CustomStyle.Title.TvShow">
     <item name="android:ellipsize">end</item>
     <item name="android:singleLine">true</item>
     <item name="android:layout_marginLeft">@dimen/secondary_margin</item>
   </style>
 
-  <style name="AppTheme.Subtitle.TvShow">
+  <style name="CustomStyle.Subtitle.TvShow">
     <item name="android:ellipsize">end</item>
     <item name="android:singleLine">true</item>
     <item name="android:layout_marginLeft">@dimen/secondary_margin</item>
     <item name="android:paddingBottom">@dimen/main_margin</item>
   </style>
 
-  <style name="AppTheme.Image.TvShowFranArt">
+  <style name="CustomStyle.Image.TvShowFranArt">
     <item name="android:layout_width">fill_parent</item>
     <item name="android:layout_height">@dimen/fan_art_height</item>
   </style>
 
-  <style name="AppTheme.TextListViewHeader">
+  <style name="CustomStyle.TextListViewHeader">
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_width">match_parent</item>
     <item name="android:background">@color/secondary_color</item>
