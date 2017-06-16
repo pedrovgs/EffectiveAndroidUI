@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/AppTheme.Chapter">
+                style="@style/AppTheme.Chapter">
 
   <!-- Chapter number -->
 
   <TextView android:id="@+id/tv_chapter_number"
-      android:layout_alignParentLeft="true"
-      android:layout_centerVertical="true"
-      style="@style/AppTheme.Chapter.Number"/>
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            style="@style/AppTheme.Chapter.Text.Number"/>
 
   <!-- Chapter title -->
 
   <TextView android:id="@+id/tv_chapter_title"
-      android:layout_toRightOf="@id/tv_chapter_number"
-      style="@style/AppTheme.Chapter.Title"/>
+            android:layout_toRightOf="@id/tv_chapter_number"
+            style="@style/AppTheme.Chapter.Text.Title"/>
 
   <!-- Chapter publish date -->
 
   <TextView android:id="@+id/tv_chapter_publish_date"
-      style="@style/AppTheme.Chapter.PublishDate"
-      android:layout_toRightOf="@id/tv_chapter_number"
-      android:layout_below="@id/tv_chapter_title"/>
+            style="@style/AppTheme.Chapter.Text.PublishDate"
+            android:layout_toRightOf="@id/tv_chapter_number"
+            android:layout_below="@id/tv_chapter_title"/>
 </RelativeLayout>
