@@ -4,21 +4,24 @@
 
   <!-- Chapter number -->
 
-  <TextView android:id="@+id/tv_chapter_number"
+  <TextView
+      android:id="@+id/tv_chapter_number"
       android:layout_alignParentLeft="true"
       android:layout_centerVertical="true"
-      style="@style/AppTheme.Chapter.Number"/>
+      style="@style/AppTheme.Chapter.Text.Number"/>
 
   <!-- Chapter title -->
 
-  <TextView android:id="@+id/tv_chapter_title"
+  <TextView
+      android:id="@+id/tv_chapter_title"
       android:layout_toRightOf="@id/tv_chapter_number"
-      style="@style/AppTheme.Chapter.Title"/>
+      style="@style/AppTheme.Chapter.Text.Title"/>
 
   <!-- Chapter publish date -->
 
-  <TextView android:id="@+id/tv_chapter_publish_date"
-      style="@style/AppTheme.Chapter.PublishDate"
+  <TextView
+      android:id="@+id/tv_chapter_publish_date"
+      android:layout_below="@id/tv_chapter_title"
       android:layout_toRightOf="@id/tv_chapter_number"
-      android:layout_below="@id/tv_chapter_title"/>
+      style="@style/AppTheme.Chapter.Text.PublishDate"/>
 </RelativeLayout>
