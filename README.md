@@ -1,6 +1,10 @@
 Effective Android UI [![Build Status](https://travis-ci.org/pedrovgs/EffectiveAndroidUI.svg?branch=master)](https://travis-ci.org/pedrovgs/EffectiveAndroidUI) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-EffectiveAndroidUI-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1347)
 ====================
 
+🔝 Top sponsors 🔝 
+
+[![EmergeLogo](https://www.emergetools.com/images/emergetoolsstandard.png)](https://www.emergetools.com)
+
 Sample project created to reinforce some of the main concepts described in the tech talk "Effective Android UI".
 
 In this repository you are going to find some interesting samples like:
