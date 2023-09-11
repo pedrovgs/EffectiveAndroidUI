@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppTheme.Chapter">
+
+    <!-- Chapter number -->
+
+    <TextView android:id="@+id/tv_chapter_number"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/sixth_color"
+        android:textSize="@dimen/numeric_title_size"
+        android:layout_marginLeft="@dimen/secondary_margin"/>
+
+    <!-- Chapter title -->
+
+    <TextView android:id="@+id/tv_chapter_title"
+        android:layout_toRightOf="@id/tv_chapter_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/secondary_margin"
+        android:layout_marginLeft="@dimen/main_margin"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/fourth_color"
+        android:singleLine="true"/>
+
+    <!-- Chapter publish date -->
+
+    <!--<item name="android:fontFamily">sans-serif-light</item>-->
+
+    <TextView android:id="@+id/tv_chapter_publish_date"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="@dimen/main_margin"
+        android:paddingBottom="@dimen/secondary_margin"
+        android:textColor="@color/fourth_color"
+        android:layout_toRightOf="@id/tv_chapter_number"
+        android:layout_below="@id/tv_chapter_title"/>
+
+</RelativeLayout>

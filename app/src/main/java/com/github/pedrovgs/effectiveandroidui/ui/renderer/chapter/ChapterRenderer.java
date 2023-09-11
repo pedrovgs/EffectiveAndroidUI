@@ -19,12 +19,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import com.github.pedrovgs.effectiveandroidui.R;
 import com.github.pedrovgs.effectiveandroidui.domain.tvshow.Chapter;
 import com.pedrogomez.renderers.Renderer;
+
 import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * Renderer implementation for Chapter objects.
@@ -58,7 +61,7 @@ public class ChapterRenderer extends Renderer<Chapter> {
   }
 
   @Override protected View inflate(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-    return layoutInflater.inflate(R.layout.row_chapter, viewGroup, false);
+    return layoutInflater.inflate(R.layout.row_chapter_2, viewGroup, false);
   }
 
   @Override public void render() {
