@@ -60,7 +60,7 @@ Developed By
   <img alt="Follow me on X" src="https://img.icons8.com/?size=100&id=6Fsj3rv2DCmG&format=png&color=000000" height="60" width="60"/>
 </a>
 <a href="https://es.linkedin.com/in/pedrovgs">
-  <img alt="Add me to Linkedin" src="https://img.icons8.com/m_rounded/512/FFFFFF/linkedin.png" height="60" width="60"/>
+  <img alt="Add me to Linkedin" src="https://img.icons8.com/?size=100&id=447&format=png&color=000000" height="60" width="60"/>
 </a>
 
 
